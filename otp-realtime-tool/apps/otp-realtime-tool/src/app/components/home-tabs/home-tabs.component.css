@@ -1,0 +1,19 @@
+.tab-label-container {
+  display: flex;
+  align-items: center;
+}
+
+.tab-icon {
+  width: 48px;
+  margin-right: 8px;
+}
+
+.mdc-tab__text-label {
+  font-size: 24px;
+  font-weight: bold;
+  color: #555;
+}
+
+.mat-mdc-tab.mdc-tab--active .mdc-tab__text-label {
+  color: rgb(45, 68, 216) !important;
+}
