@@ -9,6 +9,7 @@ import { StandardProgressionComponent } from '../standard-progression/standard-p
 })
 export class TabContentComponent implements OnInit {
   @Input({ required: true }) configName!: string;
+  @Input({ required: true }) tabLabel!: string;
 
   ngOnInit(): void {
     console.log('tab-content configName', this.configName);

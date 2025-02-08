@@ -9,7 +9,10 @@
     </ng-template>
 
     <ng-container>
-      <tab-content [configName]="tab.configName"></tab-content>
+      <tab-content
+        [configName]="tab.configName"
+        [tabLabel]="tab.label"
+      ></tab-content>
     </ng-container>
   </mat-tab>
   }

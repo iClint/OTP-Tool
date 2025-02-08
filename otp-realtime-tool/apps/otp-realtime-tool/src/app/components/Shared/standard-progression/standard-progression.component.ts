@@ -17,6 +17,7 @@ export class StandardProgressionComponent
   implements OnInit
 {
   @Input({ required: true }) override configName!: string;
+  @Input({ required: true }) tabLabel!: string;
   public hoveredIndex: number | null = null;
 
   private hideTimeout: any;
