@@ -10,15 +10,19 @@ namespace OTPToolAPI.Controllers;
 public class WebConfigsController : ControllerBase
 {
     [HttpGet(Name = "GetWebConfigs")]
-    public IActionResult GetConfig()
+    public IActionResult GetConfig([FromQuery] string configName)
     {
-        
-        if (FileIO.Exists("WebConfigs/fleet-buttons.json"))
+        return GetWebConfig(configName);
+    }
+
+    private IActionResult GetWebConfig(string configName)
+    {
+        if (!FileIO.Exists($"WebConfigs/{configName}.json"))
         {
-            Console.WriteLine("File exists");
+            return BadRequest($"Config {configName} does not exist!");
         }
         
-        var json = FileIO.ReadAllText("WebConfigs/fleet-buttons.json");
+        var json = FileIO.ReadAllText($"WebConfigs/{configName}.json");
         var configs = JsonSerializer.Deserialize<WebConfigsModel>(json);
 
         return Ok(configs);

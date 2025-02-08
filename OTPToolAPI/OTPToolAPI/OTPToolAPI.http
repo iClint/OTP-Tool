@@ -1,6 +1,6 @@
 @OTPToolAPI_HostAddress = http://localhost:5059
 
-GET {{OTPToolAPI_HostAddress}}/weatherforecast/
+GET {{OTPToolAPI_HostAddress}}/WebConfigs?configName=fleet-buttons
 Accept: application/json
 
 ###

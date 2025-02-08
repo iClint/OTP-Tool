@@ -32,3 +32,5 @@
 /Users/clintkingston/Repositories/chaptertime/otp-realtime-tool/OTPToolAPI/OTPToolAPI/obj/Debug/net8.0/OTPToolAPI.genruntimeconfig.cache
 /Users/clintkingston/Repositories/chaptertime/otp-realtime-tool/OTPToolAPI/OTPToolAPI/obj/Debug/net8.0/ref/OTPToolAPI.dll
 /Users/clintkingston/Repositories/chaptertime/otp-realtime-tool/OTPToolAPI/OTPToolAPI/bin/Debug/net8.0/WebConfigs/fleet-buttons.json
+/Users/clintkingston/Repositories/chaptertime/otp-realtime-tool/OTPToolAPI/OTPToolAPI/bin/Debug/net8.0/WebConfigs/p2p-buttons.json
+/Users/clintkingston/Repositories/chaptertime/otp-realtime-tool/OTPToolAPI/OTPToolAPI/bin/Debug/net8.0/WebConfigs/tabs.json

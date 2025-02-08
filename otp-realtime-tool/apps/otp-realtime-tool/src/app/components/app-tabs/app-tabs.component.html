@@ -1,5 +1,5 @@
 <mat-tab-group>
-  @for (tab of config.tabs; track tab) {
+  @for (tab of configs?.tabs; track tab) {
   <mat-tab>
     <ng-template mat-tab-label>
       <div class="tab-label-container">
@@ -8,7 +8,9 @@
       </div>
     </ng-template>
 
-    <ng-container *ngComponentOutlet="tab.component"></ng-container>
+    <ng-container>
+      <tab-content [configName]="tab.configName"></tab-content>
+    </ng-container>
   </mat-tab>
   }
 </mat-tab-group>

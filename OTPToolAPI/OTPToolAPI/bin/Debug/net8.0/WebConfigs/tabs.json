@@ -1,0 +1,19 @@
+{
+  "Tabs": [
+    {
+      "Label": "Fleet",
+      "ConfigName": "fleet-buttons",
+      "Icon": "/icons/fleet.png"
+    },
+    {
+      "Label": "P2P",
+      "ConfigName": "p2p-buttons",
+      "Icon": "icons/p2p.png"
+    },
+    {
+      "Label": "Settings",
+      "ConfigName": "p2p-buttons",
+      "Icon": "icons/settings.png"
+    }
+  ]
+}

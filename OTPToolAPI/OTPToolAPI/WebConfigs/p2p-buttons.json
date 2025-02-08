@@ -1,0 +1,81 @@
+{
+  "Buttons": [
+    {
+      "Label": "Received",
+      "Action": "standardProgression",
+      "Submenu": true,
+      "SubmenuItems": [
+        {
+          "Label": "Change My Order Open",
+          "Action": "standardProgression"
+        }
+      ]
+    },
+    {
+      "Label": "Preparing",
+      "Action": "standardProgression",
+      "Submenu": false,
+      "SubmenuItems": []
+    },
+    {
+      "Label": "Prepared",
+      "Action": "standardProgression",
+      "Submenu": false,
+      "SubmenuItems": []
+    },
+    {
+      "Label": "Preparing Handover",
+      "Action": "standardProgression",
+      "Submenu": false,
+      "SubmenuItems": []
+    },
+    {
+      "Label": "Handing Over",
+      "Action": "standardProgression",
+      "Submenu": false,
+      "SubmenuItems": []
+    },
+    {
+      "Label": "On Its Way",
+      "Action": "standardProgression",
+      "Submenu": false,
+      "SubmenuItems": [
+        {
+          "Label": "Restricted Items Vic",
+          "Action": "standardProgression"
+        },
+        {
+          "Label": "Restricted Items Default",
+          "Action": "standardProgression"
+        }
+      ]
+    },
+    {
+      "Label": "Arriving",
+      "Action": "standardProgression",
+      "Submenu": false,
+      "SubmenuItems": [
+        {
+          "Label": "Restricted Items Vic",
+          "Action": "standardProgression"
+        },
+        {
+          "Label": "Restricted Items Default",
+          "Action": "standardProgression"
+        }
+      ]
+    },
+    {
+      "Label": "Delivered",
+      "Action": "standardProgression",
+      "Submenu": false,
+      "SubmenuItems": []
+    },
+    {
+      "Label": "Canceled",
+      "Action": "standardProgression",
+      "Submenu": false,
+      "SubmenuItems": []
+    }
+  ]
+}

@@ -1,29 +1,32 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, input, Input, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatButtonModule } from '@angular/material/button';
 import { MatExpansionModule } from '@angular/material/expansion';
-import { HttpService } from 'apps/otp-realtime-tool/src/app/services/http-service/http.service';
+import { HttpClientService } from 'apps/otp-realtime-tool/src/app/services/http-service/http-client.service';
+import { CommonDirective } from '../../../common/common.directive';
 
 @Component({
-  selector: 'app-fleet-standard-progression',
+  selector: 'standard-progression',
   standalone: true,
   imports: [CommonModule, MatButtonModule, MatExpansionModule],
-  templateUrl: './fleet-standard-progression.component.html',
-  styleUrl: './fleet-standard-progression.component.css',
+  templateUrl: './standard-progression.component.html',
+  styleUrl: './standard-progression.component.css',
 })
-export class FleetStandardProgressionComponent implements OnInit {
-  public config: any;
+export class StandardProgressionComponent
+  extends CommonDirective
+  implements OnInit
+{
+  @Input({ required: true }) override configName!: string;
   public hoveredIndex: number | null = null;
 
   private hideTimeout: any;
 
-  constructor(private httpService: HttpService) {}
+  constructor(httpClientService: HttpClientService) {
+    super(httpClientService);
+  }
 
   ngOnInit(): void {
-    alert('FleetStandardProgressionComponent');
-    this.httpService.getFleetButtonsConfig().subscribe((config) => {
-      this.config = config;
-    });
+    this.getWebConfig(this.configName);
   }
 
   onMouseEnter(index: number) {
