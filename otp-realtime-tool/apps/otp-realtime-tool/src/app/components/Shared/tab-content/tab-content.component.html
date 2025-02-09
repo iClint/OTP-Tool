@@ -6,6 +6,7 @@
 
   @if(config.showPreview) {
   <div class="resizable-container">
+    {{ config.showPreview }}
     <h2 class="space">iFrame Preview</h2>
     <iframe [src]="sanitizedUrl" frameborder="0"></iframe>
     <div class="right-aligned">Drag anchor to ressize preview</div>
