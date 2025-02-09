@@ -1,0 +1,83 @@
+# Node modules & dependencies
+node_modules/
+dist/
+tmp/
+.angular/
+.env
+.env.local
+.env.*.local
+
+# Nx workspace & build files
+.nx/cache/
+.nx/tmp/
+.nx/workspace.json
+workspace.json
+nx.json
+tools/
+
+# Jest testing & coverage reports
+coverage/
+jest.cache/
+jest.config.js
+jest.preset.js
+*.test.js
+*.test.ts
+*.spec.js
+*.spec.ts
+junit.xml
+reports/
+debug.log
+.vscode/
+
+# Angular-specific ignores
+.idea/
+.sublime-project
+.sublime-workspace
+*.code-workspace
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+*.swp
+*.bak
+*.DS_Store
+
+# macOS & Windows system files
+.DS_Store
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# .NET 8-specific ignores
+**/bin/
+**/obj/
+**/packages/
+**/TestResults/
+**/coverage/
+*.exe
+*.dll
+*.pdb
+*.so
+*.idb
+*.csproj.user
+**/project.lock.json
+**/project.fragment.lock.json
+*.sln.docstates
+*.user
+*.db
+*.sqlite
+wwwroot/
+
+# Docker-related ignores
+docker-compose.override.yml
+docker-compose.debug.yml
+docker-compose.release.yml
+
+# Azure DevOps & CI/CD
+artifacts/
+
+# Lerna & Monorepo debug logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
