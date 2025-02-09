@@ -1,3 +1,73 @@
-.content-container {
-  margin: 24px;
+/* ✅ Main container - flex row layout */
+.tab-content {
+  display: flex;
+  flex-wrap: wrap; /* ✅ Allows wrapping so `custom-json` moves below if needed */
+  gap: 20px;
+  padding: 24px;
+  width: 100%;
+  height: auto;
+  justify-content: flex-start; /* ✅ Align items from left */
+  align-items: flex-start; /* ✅ Align everything to the top */
+}
+
+/* ✅ Standard Progression: Fits content */
+standard-progression {
+  flex: 0 1 auto;
+  white-space: nowrap;
+  align-self: flex-start;
+}
+
+/* ✅ Resizable iFrame container (Preview) */
+.resizable-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  /* border: 2px solid #ccc; */
+  padding: 10px;
+  resize: horizontal;
+  overflow: hidden;
+  min-width: 425px; /* ✅ Prevents shrinking too much */
+  max-width: 60vw; /* ✅ Prevents expanding too much */
+  width: auto; /* ✅ Allows dynamic resizing */
+  flex-shrink: 0; /* ✅ Prevents `preview` from moving to a new row */
+}
+
+/* ✅ Ensure iframe adjusts to the resizable container */
+iframe {
+  width: 100%;
+  height: 800px;
+  border: 10px solid #2e2e2e;
+  border-radius: 20px;
+}
+
+.right-aligned {
+  align-self: flex-end; /* ✅ Right-aligns the component */
+}
+
+/* ✅ Custom JSON: Takes remaining space, moves below if needed, and is left-aligned */
+custom-json {
+  flex: 1 1 auto;
+  min-width: 300px;
+  align-self: flex-start; /* ✅ Left-aligns the component */
+  justify-content: flex-start; /* ✅ Ensures content is left-aligned */
+}
+
+/* ✅ When space runs out, only `custom-json` moves below */
+@media (max-width: 1024px) {
+  .tab-content {
+    flex-wrap: wrap; /* ✅ Allows wrapping */
+  }
+
+  .resizable-container {
+    flex: 0 1 auto; /* ✅ Prevents preview from pushing down */
+    min-width: 350px;
+    max-width: 50vw; /* ✅ Ensures preview does not grow too large */
+    flex-shrink: 0; /* ✅ Ensures `preview` never wraps */
+  }
+
+  custom-json {
+    flex: 1 1 100%; /* ✅ Moves below on small screens */
+    text-align: left; /* ✅ Left-aligns its content */
+  }
 }

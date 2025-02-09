@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("OTPToolAPI")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d54e6c56c40587657a603a595bd36ac60c6785a4")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7f1e94699fb2b31cd160e7c081b913bffcf4f704")]
 [assembly: System.Reflection.AssemblyProductAttribute("OTPToolAPI")]
 [assembly: System.Reflection.AssemblyTitleAttribute("OTPToolAPI")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

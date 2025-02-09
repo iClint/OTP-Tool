@@ -1,0 +1,173 @@
+{
+  "tabs": [
+    {
+      "proposition": "Fleet",
+      "icon": "/icons/fleet.png",
+      "tabContent": {
+        "showCustomPayload": true,
+        "showPreview": true,
+        "previewUrl": "http://localhost:4003/track?token=140081940",
+        "buttons": [
+          {
+            "label": "Received",
+            "action": "standardProgression",
+            "submenuButtons": [
+              {
+                "label": "Change My Order Open",
+                "action": "standardProgression"
+              }
+            ]
+          },
+          {
+            "label": "Preparing",
+            "action": "standardProgression",
+            "submenuButtons": []
+          },
+          {
+            "label": "Prepared",
+            "action": "standardProgression",
+            "submenuButtons": []
+          },
+          {
+            "label": "onItsWay",
+            "action": "standardProgression",
+            "submenuButtons": [
+              {
+                "label": "Restricted Items Vic",
+                "action": "standardProgression"
+              },
+              {
+                "label": "Restricted Items Default",
+                "action": "standardProgression"
+              },              {
+                "label": "Restricted Items Vic Late",
+                "action": "standardProgression"
+              },
+              {
+                "label": "Restricted Items Default Late",
+                "action": "standardProgression"
+              }
+            ]
+          },
+          {
+            "label": "nextInLine",
+            "action": "standardProgression",
+            "submenuButtons": [
+              {
+                "label": "Restricted Items Vic",
+                "action": "standardProgression"
+              },
+              {
+                "label": "Restricted Items Default",
+                "action": "standardProgression"
+              }
+            ]
+          },
+          {
+            "label": "arriving",
+            "action": "standardProgression",
+            "submenuButtons": [
+              {
+                "label": "Restricted Items Vic",
+                "action": "standardProgression"
+              },
+              {
+                "label": "Restricted Items Default",
+                "action": "standardProgression"
+              }
+            ]
+          },
+          {
+            "label": "delivered",
+            "action": "standardProgression",
+            "submenuButtons": []
+          },
+          {
+            "label": "canceled",
+            "action": "standardProgression",
+            "submenuButtons": []
+          }
+        ]
+      }
+    },
+    {
+      "proposition": "P2P",
+      "icon": "icons/p2p.png",
+      "tabContent": {
+        "showCustomPayload": true,
+        "showPreview": true,
+        "previewUrl": "http://localhost:4003/track?token=150328588",
+        "buttons": [
+          {
+            "label": "Received",
+            "action": "standardProgression",
+            "submenuItems": [
+              {
+                "label": "Change My Order Open",
+                "action": "standardProgression"
+              }
+            ]
+          },
+          {
+            "label": "Preparing",
+            "action": "standardProgression",
+            "submenuItems": []
+          },
+          {
+            "label": "Prepared",
+            "action": "standardProgression",
+            "submenuItems": []
+          },
+          {
+            "label": "preparingHandover",
+            "action": "standardProgression",
+            "submenuItems": []
+          },
+          {
+            "label": "handingOver",
+            "action": "standardProgression",
+            "submenuItems": []
+          },
+          {
+            "label": "onItsWay",
+            "action": "standardProgression",
+            "submenuItems": [
+              {
+                "label": "Restricted Items Vic",
+                "action": "standardProgression"
+              },
+              {
+                "label": "Restricted Items Default",
+                "action": "standardProgression"
+              }
+            ]
+          },
+          {
+            "label": "arriving",
+            "action": "standardProgression",
+            "submenuItems": [
+              {
+                "label": "Restricted Items Vic",
+                "action": "standardProgression"
+              },
+              {
+                "label": "Restricted Items Default",
+                "action": "standardProgression"
+              }
+            ]
+          },
+          {
+            "label": "delivered",
+            "action": "standardProgression",
+            "submenuItems": []
+          },
+          {
+            "label": "canceled",
+            "action": "standardProgression",
+            "submenuItems": []
+          }
+        ]
+      }
+    }
+  ]
+}

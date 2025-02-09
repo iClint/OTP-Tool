@@ -2,33 +2,21 @@ import { Component, input, Input, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatButtonModule } from '@angular/material/button';
 import { MatExpansionModule } from '@angular/material/expansion';
-import { HttpClientService } from 'apps/otp-realtime-tool/src/app/services/http-service/http-client.service';
-import { CommonDirective } from '../../../common/common.directive';
+import { MatIconModule } from '@angular/material/icon';
 
 @Component({
   selector: 'standard-progression',
   standalone: true,
-  imports: [CommonModule, MatButtonModule, MatExpansionModule],
+  imports: [CommonModule, MatButtonModule, MatExpansionModule, MatIconModule],
   templateUrl: './standard-progression.component.html',
   styleUrl: './standard-progression.component.css',
 })
-export class StandardProgressionComponent
-  extends CommonDirective
-  implements OnInit
-{
-  @Input({ required: true }) override configName!: string;
+export class StandardProgressionComponent {
+  @Input({ required: true }) config!: any;
   @Input({ required: true }) tabLabel!: string;
   public hoveredIndex: number | null = null;
 
-  private hideTimeout: any;
-
-  constructor(httpClientService: HttpClientService) {
-    super(httpClientService);
-  }
-
-  ngOnInit(): void {
-    this.getWebConfig(this.configName);
-  }
+  private hideTimeout: ReturnType<typeof setTimeout> | undefined;
 
   onMouseEnter(index: number) {
     clearTimeout(this.hideTimeout);

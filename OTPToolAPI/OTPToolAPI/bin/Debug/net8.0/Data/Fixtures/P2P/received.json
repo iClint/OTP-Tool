@@ -1,0 +1,43 @@
+{
+    "carrierName": "",
+    "driverName": "",
+    "driverTrackingUrl": "",
+    "driverMobileNumber": "",
+    "driverProofOfDeliveryPhotoUrl": "",
+    "driverStatus": "",
+    "projectedDeliveryTime": {
+        "status": "On Schedule",
+        "originalStartTime": "2025-02-08T11:00:00Z",
+        "originalEndTime": "2025-02-08T12:00:00Z",
+        "startTime": "2025-02-08T11:00:00Z",
+        "endTime": "2025-02-08T12:00:00Z",
+        "bufferType": "Standard"
+    },
+    "notifications": [],
+    "coreStatuses": [
+        {
+            "timeStamp": "2025-02-08T11:00:00Z",
+            "value": "Placement",
+            "subStatus": {
+                "timeStamp": "2025-02-08T11:00:00Z",
+                "name": "Received"
+            },
+            "subStatuses": [
+                {
+                    "timeStamp": "2025-02-08T10:00:00Z",
+                    "name": "Received"
+                },
+                {
+                    "timeStamp": "2025-02-08T11:00:00Z",
+                    "name": "Received"
+                }
+            ]
+        }
+    ],
+    "coreStatus": {
+        "timeStamp": "2025-02-08T11:00:00Z",
+        "value": "Placement"
+    },
+    "isThirdPartyDelivery": false,
+    "isCarrierTypeDecided": false
+}

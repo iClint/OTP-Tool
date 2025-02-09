@@ -1,3 +1,3 @@
 export const httpClientServiceConfig = {
-  webConfigsEndpoint: 'http://localhost:5059',
+  apiUrl: 'http://localhost:5059',
 };

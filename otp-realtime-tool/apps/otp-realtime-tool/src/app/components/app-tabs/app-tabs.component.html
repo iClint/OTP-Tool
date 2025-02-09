@@ -1,17 +1,17 @@
 <mat-tab-group>
-  @for (tab of configs?.tabs; track tab) {
+  @for (tab of config?.tabs; track tab) {
   <mat-tab>
     <ng-template mat-tab-label>
       <div class="tab-label-container">
         <img class="tab-icon" [src]="tab.icon" alt="{{ tab.label }} icon" />
-        <span class="tab-label">{{ tab.label }}</span>
+        <span class="tab-label">{{ tab.proposition }}</span>
       </div>
     </ng-template>
 
     <ng-container>
       <tab-content
-        [configName]="tab.configName"
-        [tabLabel]="tab.label"
+        [config]="tab.tabContent"
+        [proposition]="tab.proposition"
       ></tab-content>
     </ng-container>
   </mat-tab>

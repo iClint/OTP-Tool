@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { HeaderComponent } from './components/app-header/header.component';
 import { AppTabsComponent } from './components/app-tabs/app-tabs.component';
+import { HttpClientService } from './services/http-service/http-client.service';
 
 @Component({
   imports: [RouterModule, HeaderComponent, AppTabsComponent],
@@ -10,5 +11,12 @@ import { AppTabsComponent } from './components/app-tabs/app-tabs.component';
   styleUrl: './app.component.css',
 })
 export class AppComponent {
-  title = 'otp-realtime-tool';
+  public config: any;
+  constructor(private httpClientService: HttpClientService) {}
+
+  ngOnInit() {
+    this.httpClientService.getWebConfig().subscribe((config) => {
+      this.config = config;
+    });
+  }
 }

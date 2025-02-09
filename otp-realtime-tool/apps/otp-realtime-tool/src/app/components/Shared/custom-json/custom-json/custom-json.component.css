@@ -1,0 +1,48 @@
+/* ✅ Main container - everything left-aligned */
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* ✅ Left-align everything */
+  justify-content: flex-start;
+  width: 100%;
+  max-width: 900px;
+  height: 100%;
+  padding: 16px;
+}
+
+/* ✅ Make the `mat-select` half the width of the text area */
+.mat-select-container {
+  width: 25%; /* ✅ 50% of the parent width */
+  min-width: 200px; /* ✅ Prevents shrinking too much */
+}
+
+/* ✅ Ensure textarea is full width */
+.full-width {
+  height: 600px;
+  width: 100%;
+  max-width: 900px;
+  flex-grow: 1;
+}
+
+/* ✅ Left-align text inside inputs */
+textarea {
+  text-align: left;
+}
+
+/* ✅ Ensure `mat-form-field` uses the container width */
+mat-form-field {
+  width: 100%;
+}
+
+/* ✅ Button stays aligned left */
+.button {
+  width: 200px;
+  background-color: rgb(45, 68, 216) !important;
+  color: white !important;
+  font-weight: 700;
+  margin-top: 10px;
+}
+
+.right-aligned {
+  align-self: flex-end;
+}

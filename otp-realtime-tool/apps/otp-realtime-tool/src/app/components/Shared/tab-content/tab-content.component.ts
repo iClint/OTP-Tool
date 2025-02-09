@@ -1,17 +1,24 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Sanitizer } from '@angular/core';
 import { StandardProgressionComponent } from '../standard-progression/standard-progression.component';
+import { CustomJsonComponent } from '../custom-json/custom-json/custom-json.component';
+import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
 
 @Component({
   selector: 'tab-content',
-  imports: [StandardProgressionComponent],
+  imports: [StandardProgressionComponent, CustomJsonComponent],
   templateUrl: './tab-content.component.html',
   styleUrl: './tab-content.component.css',
 })
 export class TabContentComponent implements OnInit {
-  @Input({ required: true }) configName!: string;
-  @Input({ required: true }) tabLabel!: string;
+  @Input({ required: true }) config: any;
+  @Input({ required: true }) proposition!: string;
+  public sanitizedUrl!: SafeUrl;
+
+  constructor(private sanitizer: DomSanitizer) {}
 
   ngOnInit(): void {
-    console.log('tab-content configName', this.configName);
+    this.sanitizedUrl = this.sanitizer.bypassSecurityTrustResourceUrl(
+      this.config.previewUrl
+    );
   }
 }

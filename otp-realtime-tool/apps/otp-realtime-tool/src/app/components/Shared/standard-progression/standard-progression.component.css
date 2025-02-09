@@ -7,13 +7,36 @@
   flex-direction: row;
 }
 
+.submenu-button-container {
+  background-color: #00000043;
+  width: 210px;
+  border-radius: 5px;
+}
+
 .button {
+  position: relative; /* Needed for absolute positioning */
   margin: 5px;
   padding: 10px;
   width: 200px;
+  min-height: 40px;
   font-weight: 700;
   background-color: rgb(45, 68, 216) !important;
   color: #ffffff !important;
+  white-space: normal;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Ensures text is centered */
+  cursor: pointer;
+  text-align: center;
+}
+
+.button mat-icon {
+  position: absolute;
+  right: 10px; /* Pushes the icon to the far right */
+  top: 50%;
+  transform: translateY(-50%); /* Vertically centers the icon */
 }
 
 .submenu {

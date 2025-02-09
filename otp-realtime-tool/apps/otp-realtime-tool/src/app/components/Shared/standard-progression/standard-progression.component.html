@@ -1,4 +1,5 @@
-<h2>{{ tabLabel }} Presets</h2>
+<h2>SignalR message</h2>
+<p>Send Preset Message</p>
 <div class="button-container">
   @for(button of config?.buttons;track $index){
   <div class="button-container-row menu-wrapper">
@@ -10,7 +11,10 @@
         (mouseleave)="onMouseLeave()"
         (click)="onButtonClick(button.action)"
       >
-        {{ button.label }}
+        <span>{{ button.label }}</span>
+        <mat-icon *ngIf="button.submenuButtons?.length > 0"
+          >arrow_right</mat-icon
+        >
       </button>
     </div>
     <div
@@ -19,9 +23,9 @@
       (mouseenter)="onMouseEnter($index)"
       (mouseleave)="onMouseLeave()"
     >
-      <div>
+      <div cclass="submenu-button-container">
         @for(item of button.submenuButtons;track $index){
-        <div class="button-container">
+        <div>
           <button
             mat-raised-button
             class="button submenu-button"

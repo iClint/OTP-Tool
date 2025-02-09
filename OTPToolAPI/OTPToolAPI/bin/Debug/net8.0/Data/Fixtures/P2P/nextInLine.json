@@ -1,0 +1,67 @@
+{
+    "carrierName": "Sample Carrier",
+    "driverName": "John Doe",
+    "driverTrackingUrl": "http://example.com/tracking",
+    "driverMobileNumber": "123-456-7890",
+    "driverProofOfDeliveryPhotoUrl": "http://example.com/proof.jpg",
+    "driverStatus": "ReceivingOrder",
+    "projectedDeliveryTime": {
+        "status": "On Schedule",
+        "originalStartTime": "2025-02-08T17:00:00Z",
+        "originalEndTime": "2025-02-08T18:00:00Z",
+        "startTime": "2025-02-08T17:00:00Z",
+        "endTime": "2025-02-08T18:00:00Z",
+        "bufferType": "Standard"
+    },
+    "notifications": [],
+    "coreStatuses": [
+        {
+            "timeStamp": "2025-02-08T17:00:00Z",
+            "value": "DeliveryStarted",
+            "subStatus": {
+                "timeStamp": "2025-02-08T17:00:00Z",
+                "name": "NextInLine"
+            },
+            "subStatuses": [
+                {
+                    "timeStamp": "2025-02-08T10:00:00Z",
+                    "name": "Received"
+                },
+                {
+                    "timeStamp": "2025-02-08T11:00:00Z",
+                    "name": "Received"
+                },
+                {
+                    "timeStamp": "2025-02-08T12:00:00Z",
+                    "name": "Picking"
+                },
+                {
+                    "timeStamp": "2025-02-08T13:00:00Z",
+                    "name": "Staged"
+                },
+                {
+                    "timeStamp": "2025-02-08T14:00:00Z",
+                    "name": "PreparingHandover"
+                },
+                {
+                    "timeStamp": "2025-02-08T15:00:00Z",
+                    "name": "HandingOver"
+                },
+                {
+                    "timeStamp": "2025-02-08T16:00:00Z",
+                    "name": "OnItsWay"
+                },
+                {
+                    "timeStamp": "2025-02-08T17:00:00Z",
+                    "name": "NextInLine"
+                }
+            ]
+        }
+    ],
+    "coreStatus": {
+        "timeStamp": "2025-02-08T17:00:00Z",
+        "value": "DeliveryStarted"
+    },
+    "isThirdPartyDelivery": false,
+    "isCarrierTypeDecided": null
+}

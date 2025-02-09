@@ -1,0 +1,30 @@
+<div class="container">
+  <h2>Send custom payload</h2>
+
+  <!-- ✅ Wrap mat-select inside a div with custom width -->
+  <div class="mat-select-container">
+    <mat-form-field>
+      <mat-label>Choose fixture </mat-label>
+      <mat-select>
+        @for(fixture of jsonFixtures;track $index) {
+        <mat-option
+          (onSelectionChange)="onFixtureChange(proposition, fixture)"
+          [value]="fixture"
+        >
+          {{ fixture }}
+        </mat-option>
+        }
+      </mat-select>
+    </mat-form-field>
+  </div>
+
+  <!-- ✅ Textarea remains full width -->
+  <mat-form-field class="full-width">
+    <mat-label>Must be a valid Json</mat-label>
+    <textarea matInput rows="30" [value]="inputData"></textarea>
+  </mat-form-field>
+
+  <div class="right-aligned">
+    <button mat-raised-button class="button">Send</button>
+  </div>
+</div>

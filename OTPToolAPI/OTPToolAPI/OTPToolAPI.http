@@ -1,6 +1,8 @@
 @OTPToolAPI_HostAddress = http://localhost:5059
 
-GET {{OTPToolAPI_HostAddress}}/WebConfigs?configName=fleet-buttons
+GET {{OTPToolAPI_HostAddress}}/WebConfigs
 Accept: application/json
-
+###
+GET {{OTPToolAPI_HostAddress}}/Fixtures?proposition=Fleet&fixtureName=arriving.json
+Accept: application/json
 ###

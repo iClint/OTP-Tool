@@ -1,6 +1,5 @@
 using System.Text.Json;
 using Microsoft.AspNetCore.Mvc;
-using OTPToolAPI.Models;
 using FileIO = System.IO.File;
 
 namespace OTPToolAPI.Controllers;
@@ -10,21 +9,19 @@ namespace OTPToolAPI.Controllers;
 public class WebConfigsController : ControllerBase
 {
     [HttpGet(Name = "GetWebConfigs")]
-    public IActionResult GetConfig([FromQuery] string configName)
+    public IActionResult GetConfig()
     {
-        return GetWebConfig(configName);
+        return GetWebConfig();
     }
 
-    private IActionResult GetWebConfig(string configName)
+    private IActionResult GetWebConfig()
     {
-        if (!FileIO.Exists($"WebConfigs/{configName}.json"))
+        if (!FileIO.Exists($"Data/WebConfigs/web-configs.json"))
         {
-            return BadRequest($"Config {configName} does not exist!");
+            return BadRequest($"Config file does not found!");
         }
         
-        var json = FileIO.ReadAllText($"WebConfigs/{configName}.json");
-        var configs = JsonSerializer.Deserialize<WebConfigsModel>(json);
-
-        return Ok(configs);
+        var json = FileIO.ReadAllText($"Data/WebConfigs/web-configs.json");
+        return Content(json, "application/json");;
     }
 }

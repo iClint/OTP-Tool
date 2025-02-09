@@ -2,9 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { MatTabsModule } from '@angular/material/tabs';
 import { ViewEncapsulation } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { HttpClientService } from '../../services/http-service/http-client.service';
 import { TabContentComponent } from '../Shared/tab-content/tab-content.component';
-import { CommonDirective } from '../../common/common.directive';
 
 @Component({
   selector: 'app-tabs',
@@ -14,17 +12,6 @@ import { CommonDirective } from '../../common/common.directive';
   styleUrl: './app-tabs.component.css',
   encapsulation: ViewEncapsulation.None,
 })
-export class AppTabsComponent extends CommonDirective implements OnInit {
-  constructor(httpClientService: HttpClientService) {
-    super(httpClientService);
-  }
-  @Input({ required: true }) configName!: string;
-
-  ngOnInit(): void {
-    this.getWebConfig('tabs');
-  }
-
-  get configs() {
-    return this.config;
-  }
+export class AppTabsComponent {
+  @Input({ required: true }) config!: any;
 }
