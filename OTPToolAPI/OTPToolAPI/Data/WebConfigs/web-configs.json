@@ -5,7 +5,7 @@
       "icon": "/icons/fleet.png",
       "tabContent": {
         "showCustomPayload": true,
-        "showPreview": false,
+        "showPreview": true,
         "previewUrl": "http://localhost:4003/track?token=140081940",
         "buttons": [
           {

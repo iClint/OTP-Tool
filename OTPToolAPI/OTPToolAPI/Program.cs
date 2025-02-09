@@ -1,11 +1,14 @@
+using OTPToolAPI.SignalRHub;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+builder.Services.AddSignalR();
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowSpecificOrigins", policy =>
     {
-        policy.WithOrigins("http://localhost:4200")
+        policy.WithOrigins("http://localhost:4200", "http://localhost:4003")
             .AllowAnyHeader()
             .AllowAnyMethod()
             .AllowCredentials(); // Required for cookies/auth headers
@@ -32,8 +35,10 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-app.UseHttpsRedirection();
+// app.UseHttpsRedirection();
 
 app.MapControllers();
+
+app.MapHub<OrderTrackingHub>("/trackingOrder");
 
 app.Run();
