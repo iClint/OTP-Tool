@@ -48,6 +48,18 @@ export class CustomJsonComponent implements OnInit {
       });
   }
 
+  onSendPayload(jsonString: string): void {
+    try {
+      const jsonObject = JSON.parse(jsonString); // ✅ Ensure it's a valid JSON object
+      this.httpClientService.postCustomMessage(jsonObject).subscribe({
+        next: (response) => console.log('✅ Success:', response),
+        error: (error) => console.error('❌ Error:', error),
+      });
+    } catch (error) {
+      console.error('❌ Invalid JSON:', error);
+    }
+  }
+
   get inputData(): string {
     return this.fixture ? JSON.stringify(this.fixture, null, 4) : '';
   }

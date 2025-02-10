@@ -30,4 +30,10 @@ export class HttpClientService {
       `${this.config.apiUrl}/Messages/${proposition}/${fixtureName}`
     );
   }
+
+  public postCustomMessage(message: any) {
+    return this.http.post(`${this.config.apiUrl}/Messages`, message, {
+      headers: { 'Content-Type': 'application/json' },
+    });
+  }
 }

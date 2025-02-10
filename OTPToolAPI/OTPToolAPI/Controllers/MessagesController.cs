@@ -1,3 +1,4 @@
+using System.Text.Json;
 using Microsoft.AspNetCore.Mvc;
 using OTPToolAPI.Services;
 using SignalrMessageSender.Models;
@@ -24,4 +25,14 @@ public class MessagesController : ControllerBase
 
         return Ok();
     }
+    
+    [HttpPost("")]
+    public async Task<IActionResult> SendCustomMessage([FromBody] object jsonData)
+    {
+        var jsonString = JsonSerializer.Serialize(jsonData); // Convert object to string
+        await _orderTrackingService.sendCustomMessage(jsonString);
+
+        return Ok();
+    }
+   
 }
