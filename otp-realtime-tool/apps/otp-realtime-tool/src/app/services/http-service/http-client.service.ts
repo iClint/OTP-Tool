@@ -24,4 +24,10 @@ export class HttpClientService {
       `${this.config.apiUrl}/Fixtures/${proposition}/${fixtureName}`
     );
   }
+
+  public getSendPresetMessage(proposition: string, fixtureName: string) {
+    return this.http.get(
+      `${this.config.apiUrl}/Messages/${proposition}/${fixtureName}`
+    );
+  }
 }

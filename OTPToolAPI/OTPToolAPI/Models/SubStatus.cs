@@ -1,3 +1,5 @@
+using System.Text.Json.Serialization;
+
 namespace SignalrMessageSender.Models;
 public class SubStatus
 {

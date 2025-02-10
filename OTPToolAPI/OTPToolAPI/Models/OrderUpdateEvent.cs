@@ -10,9 +10,9 @@ namespace SignalrMessageSender.Models
         public string[] DriverStatus { get; set; }
         public ProjectedDeliveryTime ProjectedDeliveryTime { get; set; }
         public List<string> Notifications { get; set; }
-
-        // Add these properties to fix the error
-        public CoreStatus CoreStatus { get; set; }  // Single core status object
-        public List<CoreStatus> CoreStatuses { get; set; }  // Array of core statuses
+        public CoreStatus CoreStatus { get; set; } 
+        public List<CoreStatus> CoreStatuses { get; set; }
+        public bool IsThirdPartyDelivery { get; set; }
+        public bool IsCarrierTypeDecided { get; set; }
     }
 }

@@ -1,16 +1,17 @@
 {
   "tabs": [
     {
-      "proposition": "Fleet",
+      "tabLabel": "Fleet",
       "icon": "/icons/fleet.png",
       "tabContent": {
+        "proposition": "Fleet",
         "showCustomPayload": true,
         "showPreview": true,
         "previewUrl": "http://localhost:4003/track?token=140081940",
         "buttons": [
           {
             "label": "Received",
-            "action": "standardProgression",
+            "action": "received",
             "submenuButtons": [
               {
                 "label": "Change My Order Open",
@@ -20,17 +21,17 @@
           },
           {
             "label": "Preparing",
-            "action": "standardProgression",
+            "action": "picking",
             "submenuButtons": []
           },
           {
             "label": "Prepared",
-            "action": "standardProgression",
+            "action": "staged",
             "submenuButtons": []
           },
           {
-            "label": "onItsWay",
-            "action": "standardProgression",
+            "label": "On Its Way",
+            "action": "onItsWay",
             "submenuButtons": [
               {
                 "label": "Restricted Items Vic",
@@ -50,8 +51,8 @@
             ]
           },
           {
-            "label": "nextInLine",
-            "action": "standardProgression",
+            "label": "Next In Line",
+            "action": "nextInLine",
             "submenuButtons": [
               {
                 "label": "Restricted Items Vic",
@@ -64,8 +65,8 @@
             ]
           },
           {
-            "label": "arriving",
-            "action": "standardProgression",
+            "label": "Arriving",
+            "action": "arriving",
             "submenuButtons": [
               {
                 "label": "Restricted Items Vic",
@@ -78,29 +79,30 @@
             ]
           },
           {
-            "label": "delivered",
-            "action": "standardProgression",
+            "label": "Delivered",
+            "action": "delivered",
             "submenuButtons": []
           },
           {
-            "label": "canceled",
-            "action": "standardProgression",
+            "label": "Cancelled",
+            "action": "cancelled",
             "submenuButtons": []
           }
         ]
       }
     },
     {
-      "proposition": "P2P",
+      "tabLabel": "P2P",
       "icon": "icons/p2p.png",
       "tabContent": {
+        "proposition": "P2P",
         "showCustomPayload": true,
         "showPreview": true,
         "previewUrl": "http://localhost:4003/track?token=150328588",
         "buttons": [
           {
             "label": "Received",
-            "action": "standardProgression",
+            "action": "received.json",
             "submenuButtons": [
               {
                 "label": "Change My Order Open",

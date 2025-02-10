@@ -1,3 +1,4 @@
+using OTPToolAPI.Services;
 using OTPToolAPI.SignalRHub;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -23,6 +24,7 @@ builder.Services.AddControllers().AddJsonOptions(options =>
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+builder.Services.AddSingleton<OrderTrackingService>();
 
 var app = builder.Build();
 

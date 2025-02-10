@@ -8,44 +8,56 @@ namespace OTPToolAPI.Services;
 public class OrderTrackingService
 {
     private readonly IHubContext<OrderTrackingHub> _hubContext;
-    private readonly string _fixturesDirectory;
     private readonly Random _random; // Random instance for generating random locations
 
-    public OrderTrackingService(IHubContext<OrderTrackingHub> hubContext, string fixturesDirectory, Random random)
+    public string FixturesDirectory { get; }
+
+    public OrderTrackingService(IHubContext<OrderTrackingHub> hubContext, IConfiguration configuration)
     {
         _hubContext = hubContext;
-        _fixturesDirectory = fixturesDirectory;
-        _random = random;
+        _random = new Random();
+        FixturesDirectory = Path.Combine(Directory.GetCurrentDirectory(), configuration["OrderTracking:FixturesDirectory"] ?? "Data/Fixtures");
+
     }
     
      // Method to send OrderUpdate message based on a fixture file
-        private async Task SendOrderUpdateMessage(string fixtureFileName)
-        {
-            var fixturePath = Path.Combine(_fixturesDirectory, fixtureFileName);
-            if (File.Exists(fixturePath))
-            {
-                var jsonString = await File.ReadAllTextAsync(fixturePath);
-                var message = JsonSerializer.Deserialize<OrderUpdateEvent>(jsonString);
+     public async Task SendPresetOrderUpdateMessage(string fixturePath)
+     {
+         if (File.Exists(fixturePath))
+         {
+             var jsonString = await File.ReadAllTextAsync(fixturePath);
+             Console.WriteLine($"Raw JSON: {jsonString}");
 
-                var orderUpdateNotification = new OrderTrackingNotification<OrderUpdateEvent>
-                {
-                    MessageId = Guid.NewGuid().ToString(),
-                    CorrelationId = Guid.NewGuid().ToString(),
-                    MessageType = TrackingEventType.OrderUpdated,
-                    Payload = message
-                };
+             
+             var options = new JsonSerializerOptions
+             {
+                 PropertyNameCaseInsensitive = true, // ✅ Allows property names to match case-insensitively
+                 PropertyNamingPolicy = JsonNamingPolicy.CamelCase, // ✅ Ensures properties match camelCase JSON
+                 WriteIndented = true // Optional: Improves logging readability
+             };
+             
+             
+             var orderUpdateEvent = JsonSerializer.Deserialize<OrderUpdateEvent>(jsonString, options);
 
-                await _hubContext.Clients.All.SendAsync("OnMessageReceived", orderUpdateNotification);
-                Console.WriteLine($"Sent OrderUpdate message from {fixtureFileName}: {orderUpdateNotification.MessageId}");
-            }
-            else
-            {
-                Console.WriteLine($"Fixture file not found: {fixturePath}");
-            }
-        }
+             var orderUpdateNotification = new OrderTrackingNotification<OrderUpdateEvent>
+             {
+                 MessageId = Guid.NewGuid().ToString(),
+                 CorrelationId = Guid.NewGuid().ToString(),
+                 MessageType = TrackingEventType.OrderUpdated,
+                 Payload = orderUpdateEvent // ✅ Now it's an object, not a string
+             };
+
+             await _hubContext.Clients.All.SendAsync("OnMessageReceived", orderUpdateNotification);
+             Console.WriteLine($"Sent OrderUpdate message from {fixturePath}: {orderUpdateNotification.MessageId}");
+         }
+         else
+         {
+             Console.WriteLine($"Fixture file not found: {fixturePath}");
+         }
+     }
 
         // Method to send a LocationUpdated message
-        private async Task SendLocationUpdatedMessage()
+        public async Task SendLocationUpdatedMessage()
         {
             var locationUpdateNotification = new OrderTrackingNotification<LocationUpdatePayload>
             {
@@ -64,7 +76,7 @@ public class OrderTrackingService
         }
 
         // Method to send a random LocationUpdated message
-        private async Task SendRandomLocationUpdatedMessage()
+        public async Task SendRandomLocationUpdatedMessage()
         {
             var randomLatitude = GetRandomLatitude();
             var randomLongitude = GetRandomLongitude();

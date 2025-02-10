@@ -1,75 +1,102 @@
 {
-    "carrierName": "",
-    "driverName": "",
-    "driverTrackingUrl": "",
-    "driverMobileNumber": "",
-    "driverProofOfDeliveryPhotoUrl": "",
-    "driverStatus": "",
-    "projectedDeliveryTime": {
-        "status": "On Schedule",
-        "originalStartTime": "2025-02-08T19:00:00Z",
-        "originalEndTime": "2025-02-08T20:00:00Z",
-        "startTime": "2025-02-08T19:00:00Z",
-        "endTime": "2025-02-08T20:00:00Z",
-        "bufferType": "Standard"
-    },
-    "notifications": [],
-    "coreStatuses": [
+  "carrierName": "",
+  "driverName": "",
+  "driverTrackingUrl": "",
+  "driverMobileNumber": "",
+  "driverProofOfDeliveryPhotoUrl": "",
+  "driverStatus": [
+    ""
+  ],
+  "projectedDeliveryTime": {
+    "status": "OnTime",
+    "originalStartTime": "2024-08-19T18:42:34.0584300\u002B10:00",
+    "originalEndTime": "2024-08-19T19:42:34.0587610\u002B10:00",
+    "startTime": "2024-08-19T18:40:34.0590430\u002B10:00",
+    "endTime": "2024-08-19T18:55:34.0591700\u002B10:00",
+    "bufferType": "Standard"
+  },
+  "notifications": [],
+  "coreStatuses": [
+    {
+      "timeStamp": "2024-08-19T12:27:35.1946040\u002B10:00",
+      "value": "Placement",
+      "subStatuses": [
         {
-            "timeStamp": "2025-02-08T19:00:00Z",
-            "value": "Completed",
-            "subStatus": {
-                "timeStamp": "2025-02-08T19:00:00Z",
-                "name": "Delivered"
-            },
-            "subStatuses": [
-                {
-                    "timeStamp": "2025-02-08T10:00:00Z",
-                    "name": "Received"
-                },
-                {
-                    "timeStamp": "2025-02-08T11:00:00Z",
-                    "name": "Received"
-                },
-                {
-                    "timeStamp": "2025-02-08T12:00:00Z",
-                    "name": "Picking"
-                },
-                {
-                    "timeStamp": "2025-02-08T13:00:00Z",
-                    "name": "Staged"
-                },
-                {
-                    "timeStamp": "2025-02-08T14:00:00Z",
-                    "name": "PreparingHandover"
-                },
-                {
-                    "timeStamp": "2025-02-08T15:00:00Z",
-                    "name": "HandingOver"
-                },
-                {
-                    "timeStamp": "2025-02-08T16:00:00Z",
-                    "name": "OnItsWay"
-                },
-                {
-                    "timeStamp": "2025-02-08T17:00:00Z",
-                    "name": "NextInLine"
-                },
-                {
-                    "timeStamp": "2025-02-08T18:00:00Z",
-                    "name": "Arriving"
-                },
-                {
-                    "timeStamp": "2025-02-08T19:00:00Z",
-                    "name": "Delivered"
-                }
-            ]
+          "timeStamp": "2024-08-19T12:27:35.1946040\u002B10:00",
+          "name": "Received"
         }
-    ],
-    "coreStatus": {
-        "timeStamp": "2025-02-08T19:00:00Z",
-        "value": "Completed"
+      ],
+      "subStatus": {
+        "timeStamp": "2024-08-19T12:27:35.1946040\u002B10:00",
+        "name": "Received"
+      }
     },
-    "isThirdPartyDelivery": false,
-    "isCarrierTypeDecided": true
+    {
+      "timeStamp": "2024-08-19T12:30:00+11:00",
+      "value": "FulfilmentStarted",
+      "subStatuses": [
+        {
+          "timeStamp": "2024-08-19T12:29:00+11:00",
+          "name": "Picking"
+        },
+        {
+          "timeStamp": "2024-08-19T12:30:00+11:00",
+          "name": "Staged"
+        }
+      ],
+      "subStatus": {
+        "timeStamp": "2024-08-19T12:30:00+11:00",
+        "name": "Staged"
+      }
+    },
+    {
+      "timeStamp": "2024-08-19T12:37:35.1946040\u002B10:00",
+      "value": "DeliveryStarted",
+      "subStatuses": [
+        {
+          "timeStamp": "2024-08-19T12:37:35.1946040\u002B10:00",
+          "name": "OnItsWay"
+        },
+        {
+          "timeStamp": "2024-08-19T12:39:35.1946040\u002B10:00",
+          "name": "Arriving"
+        }
+      ],
+      "subStatus": {
+        "timeStamp": "2024-08-19T12:39:35.1946040\u002B10:00",
+        "name": "Arriving"
+      }
+    },
+    {
+      "timeStamp": "2024-08-19T18:52:41.1938590\u002B10:00",
+      "value": "Completed",
+      "subStatuses": [
+        {
+          "timeStamp": "2024-08-19T18:52:41.1938590\u002B10:00",
+          "name": "Delivered"
+        }
+      ],
+      "subStatus": {
+        "timeStamp": "2024-08-19T18:52:41.1938590\u002B10:00",
+        "name": "Delivered"
+      }
+    }
+  ],
+  "coreStatus": {
+    "timeStamp": "2024-08-19T18:52:41.1938590\u002B10:00",
+    "value": "Completed",
+    "subStatuses": [
+      {
+        "timeStamp": "2024-08-19T18:52:41.1938590\u002B10:00",
+        "name": "Delivered"
+      }
+    ],
+    "subStatus": {
+      "timeStamp": "2024-08-19T18:52:41.1946040\u002B10:00",
+      "name": "Delivered"
+    }
+  },
+  "isThirdPartyDelivery": false,
+  "isCarrierTypeDecided": true
 }
+

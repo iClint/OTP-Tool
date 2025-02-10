@@ -1,8 +1,5 @@
 <div class="tab-content">
-  <standard-progression
-    [config]="config"
-    [tabLabel]="proposition"
-  ></standard-progression>
+  <standard-progression [config]="config"></standard-progression>
 
   @if(config.showPreview) {
   <div class="resizable-container">
@@ -13,7 +10,7 @@
   </div>
   } @if(config.showCustomPayload) {
   <custom-json
-    [proposition]="proposition"
+    [proposition]="config.proposition"
     [jsonFixtures]="config.jsonFixtures"
   ></custom-json>
   }

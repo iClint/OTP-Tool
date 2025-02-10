@@ -11,6 +11,7 @@ public enum KnownSubStatusValue
     PreparingHandover,
     HandingOver,
     OnItsWay,
+    NextInLine,
     Arriving,
     Delivered,
     Cancelled

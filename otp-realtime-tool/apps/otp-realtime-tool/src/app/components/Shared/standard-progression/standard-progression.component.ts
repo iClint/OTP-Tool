@@ -1,8 +1,9 @@
-import { Component, input, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatButtonModule } from '@angular/material/button';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatIconModule } from '@angular/material/icon';
+import { HttpClientService } from '../../../services/http-service/http-client.service';
 
 @Component({
   selector: 'standard-progression',
@@ -13,10 +14,11 @@ import { MatIconModule } from '@angular/material/icon';
 })
 export class StandardProgressionComponent {
   @Input({ required: true }) config!: any;
-  @Input({ required: true }) tabLabel!: string;
   public hoveredIndex: number | null = null;
 
   private hideTimeout: ReturnType<typeof setTimeout> | undefined;
+
+  constructor(private httpCLientService: HttpClientService) {}
 
   onMouseEnter(index: number) {
     clearTimeout(this.hideTimeout);
@@ -28,7 +30,11 @@ export class StandardProgressionComponent {
     }, 300);
   }
 
-  onButtonClick(arg0: string) {
-    throw new Error('Method not implemented.');
+  onButtonClick(action: string) {
+    console.log('button clicked - action: ', this.config.proposition, action);
+    this.httpCLientService
+      .getSendPresetMessage(this.config.proposition, action)
+      .subscribe({ next: (response) => {}, error: (errror) => {} });
+    // todo: handle response and error passing values to a dialog component
   }
 }

@@ -11,7 +11,7 @@ import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
 })
 export class TabContentComponent implements OnInit {
   @Input({ required: true }) config: any;
-  @Input({ required: true }) proposition!: string;
+  // @Input({ required: true }) proposition!: string;
   public sanitizedUrl!: SafeUrl;
 
   constructor(private sanitizer: DomSanitizer) {}

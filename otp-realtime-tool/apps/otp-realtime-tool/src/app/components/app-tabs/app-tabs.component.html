@@ -4,15 +4,12 @@
     <ng-template mat-tab-label>
       <div class="tab-label-container">
         <img class="tab-icon" [src]="tab.icon" alt="{{ tab.label }} icon" />
-        <span class="tab-label">{{ tab.proposition }}</span>
+        <span class="tab-label">{{ tab.tabLabel }}</span>
       </div>
     </ng-template>
 
     <ng-container>
-      <tab-content
-        [config]="tab.tabContent"
-        [proposition]="tab.proposition"
-      ></tab-content>
+      <tab-content [config]="tab.tabContent"></tab-content>
     </ng-container>
   </mat-tab>
   }
