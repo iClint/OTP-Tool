@@ -1,63 +1,82 @@
 {
-    "carrierName": "Uber",
-    "driverName": "John Smith",
-    "driverTrackingUrl": "http://example.com/tracking",
-    "driverMobileNumber": "123-456-7890",
-    "driverProofOfDeliveryPhotoUrl": "",
-    "driverStatus": "OnTheirWay",
-    "projectedDeliveryTime": {
-        "status": "On Schedule",
-        "originalStartTime": "2025-02-08T16:00:00Z",
-        "originalEndTime": "2025-02-08T17:00:00Z",
-        "startTime": "2025-02-08T16:00:00Z",
-        "endTime": "2025-02-08T17:00:00Z",
-        "bufferType": "Standard"
-    },
-    "notifications": [],
-    "coreStatuses": [
+  "carrierName": "Uber",
+  "driverName": "John Smith",
+  "driverTrackingUrl": "https://tracking.sandbox.usenash.com/pkg_123456",
+  "driverMobileNumber": "+61400000000",
+  "driverProofOfDeliveryPhotoUrl": "",
+  "driverStatus": ["OnTheirWay"],
+  "projectedDeliveryTime": {
+    "status": "OnTime",
+    "originalStartTime": "2024-08-19T18:42:34.0584300+10:00",
+    "originalEndTime": "2024-08-19T19:42:34.0587610+10:00",
+    "startTime": "2024-08-19T18:34:34.0590430+10:00",
+    "endTime": "2024-08-19T19:20:34.0591700+10:00",
+    "bufferType": "Standard"
+  },
+  "notifications": [],
+  "coreStatuses": [
+    {
+      "timeStamp": "2024-08-19T12:27:35.1946040+10:00",
+      "value": "Placement",
+      "subStatuses": [
         {
-            "timeStamp": "2025-02-08T16:00:00Z",
-            "value": "DeliveryStarted",
-            "subStatus": {
-                "timeStamp": "2025-02-08T16:00:00Z",
-                "name": "OnItsWay"
-            },
-            "subStatuses": [
-                {
-                    "timeStamp": "2025-02-08T10:00:00Z",
-                    "name": "Received"
-                },
-                {
-                    "timeStamp": "2025-02-08T11:00:00Z",
-                    "name": "Received"
-                },
-                {
-                    "timeStamp": "2025-02-08T12:00:00Z",
-                    "name": "Picking"
-                },
-                {
-                    "timeStamp": "2025-02-08T13:00:00Z",
-                    "name": "Staged"
-                },
-                {
-                    "timeStamp": "2025-02-08T14:00:00Z",
-                    "name": "PreparingHandover"
-                },
-                {
-                    "timeStamp": "2025-02-08T15:00:00Z",
-                    "name": "HandingOver"
-                },
-                {
-                    "timeStamp": "2025-02-08T16:00:00Z",
-                    "name": "OnItsWay"
-                }
-            ]
+          "timeStamp": "2024-08-19T12:27:35.1946040+10:00",
+          "name": "Received"
         }
-    ],
-    "coreStatus": {
-        "timeStamp": "2025-02-08T16:00:00Z",
-        "value": "DeliveryStarted"
+      ],
+      "subStatus": {
+        "timeStamp": "2024-08-19T12:27:35.1946040+10:00",
+        "name": "Received"
+      }
     },
-    "isThirdPartyDelivery": false,
-    "isCarrierTypeDecided": null
+    {
+      "timeStamp": "2024-08-19T12:30:00+10:00",
+      "value": "FulfilmentStarted",
+      "subStatuses": [
+        {
+          "timeStamp": "2024-08-19T12:29:00+10:00",
+          "name": "Picking"
+        },
+        {
+          "timeStamp": "2024-08-19T12:30:00+10:00",
+          "name": "Staged"
+        }
+      ],
+      "subStatus": {
+        "timeStamp": "2024-08-19T12:30:00+10:00",
+        "name": "Staged"
+      }
+    },
+    {
+      "timeStamp": "2024-08-19T12:37:35.1946040+10:00",
+      "value": "DeliveryStarted",
+      "subStatuses": [
+        {
+          "timeStamp": "2024-08-19T12:37:35.1946040+10:00",
+          "name": "OnItsWay"
+        }
+      ],
+      "subStatus": {
+        "timeStamp": "2024-08-19T12:37:35.1946040+10:00",
+        "name": "OnItsWay"
+      }
+    }
+  ],
+  "coreStatus": {
+    "timeStamp": "2024-08-19T12:37:35.1946040+10:00",
+    "value": "DeliveryStarted",
+    "subStatuses": [
+      {
+        "timeStamp": "2024-08-19T12:37:35.1946040+10:00",
+        "name": "OnItsWay"
+      }
+    ],
+    "subStatus": {
+      "timeStamp": "2024-08-19T12:37:35.1946040+10:00",
+      "name": "OnItsWay"
+    }
+  },
+  "isThirdPartyDelivery": true,
+  "isCarrierTypeDecided": true
 }
+

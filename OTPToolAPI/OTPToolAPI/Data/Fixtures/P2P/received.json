@@ -1,43 +1,50 @@
 {
-    "carrierName": "",
-    "driverName": "",
-    "driverTrackingUrl": "",
-    "driverMobileNumber": "",
-    "driverProofOfDeliveryPhotoUrl": "",
-    "driverStatus": "",
-    "projectedDeliveryTime": {
-        "status": "On Schedule",
-        "originalStartTime": "2025-02-08T11:00:00Z",
-        "originalEndTime": "2025-02-08T12:00:00Z",
-        "startTime": "2025-02-08T11:00:00Z",
-        "endTime": "2025-02-08T12:00:00Z",
-        "bufferType": "Standard"
-    },
-    "notifications": [],
-    "coreStatuses": [
+  "carrierName": "Uber",
+  "driverName": "",
+  "driverTrackingUrl": "",
+  "driverMobileNumber": "",
+  "driverProofOfDeliveryPhotoUrl": "",
+  "driverStatus": [],
+  "projectedDeliveryTime": {
+    "status": "OnTime",
+    "originalStartTime": "2024-08-19T18:42:34.0584300+10:00",
+    "originalEndTime": "2024-08-19T19:42:34.0587610+10:00",
+    "startTime": "2024-08-19T18:34:34.0590430+10:00",
+    "endTime": "2024-08-19T19:20:34.0591700+10:00",
+    "bufferType": "Standard"
+  },
+  "notifications": [],
+  "coreStatuses": [
+    {
+      "timeStamp": "2024-08-19T12:27:35.1946040+10:00",
+      "value": "Placement",
+      "subStatuses": [
         {
-            "timeStamp": "2025-02-08T11:00:00Z",
-            "value": "Placement",
-            "subStatus": {
-                "timeStamp": "2025-02-08T11:00:00Z",
-                "name": "Received"
-            },
-            "subStatuses": [
-                {
-                    "timeStamp": "2025-02-08T10:00:00Z",
-                    "name": "Received"
-                },
-                {
-                    "timeStamp": "2025-02-08T11:00:00Z",
-                    "name": "Received"
-                }
-            ]
+          "timeStamp": "2024-08-19T12:27:35.1946040+10:00",
+          "name": "Received"
         }
+      ],
+      "subStatus": {
+        "timeStamp": "2024-08-19T12:27:35.1946040+10:00",
+        "name": "Received"
+      }
+    }
+  ],
+  "coreStatus": {
+    "timeStamp": "2024-08-19T12:27:35.1946040+10:00",
+    "value": "Placement",
+    "subStatuses": [
+      {
+        "timeStamp": "2024-08-19T12:27:35.1946040+10:00",
+        "name": "Received"
+      }
     ],
-    "coreStatus": {
-        "timeStamp": "2025-02-08T11:00:00Z",
-        "value": "Placement"
-    },
-    "isThirdPartyDelivery": false,
-    "isCarrierTypeDecided": false
+    "subStatus": {
+      "timeStamp": "2024-08-19T12:27:35.1946040+10:00",
+      "name": "Received"
+    }
+  },
+  "isThirdPartyDelivery": true,
+  "isCarrierTypeDecided": true
 }
+

@@ -102,7 +102,7 @@
         "buttons": [
           {
             "label": "Received",
-            "action": "received.json",
+            "action": "received",
             "submenuButtons": [
               {
                 "label": "Change My Order Open",
@@ -112,27 +112,27 @@
           },
           {
             "label": "Preparing",
-            "action": "standardProgression",
+            "action": "picking",
             "submenuButtons": []
           },
           {
             "label": "Prepared",
-            "action": "standardProgression",
+            "action": "staged",
             "submenuButtons": []
           },
           {
-            "label": "preparingHandover",
-            "action": "standardProgression",
+            "label": "Preparing Handover",
+            "action": "preparingHandover",
             "submenuButtons": []
           },
           {
-            "label": "handingOver",
-            "action": "standardProgression",
+            "label": "Handing Over",
+            "action": "handingOver",
             "submenuButtons": []
           },
           {
-            "label": "onItsWay",
-            "action": "standardProgression",
+            "label": "On Its Way",
+            "action": "onItsWay",
             "submenuButtons": [
               {
                 "label": "Restricted Items Vic",
@@ -145,8 +145,8 @@
             ]
           },
           {
-            "label": "arriving",
-            "action": "standardProgression",
+            "label": "Arriving",
+            "action": "arriving",
             "submenuButtons": [
               {
                 "label": "Restricted Items Vic",
@@ -159,13 +159,13 @@
             ]
           },
           {
-            "label": "delivered",
-            "action": "standardProgression",
+            "label": "Delivered",
+            "action": "delivered",
             "submenuButtons": []
           },
           {
-            "label": "canceled",
-            "action": "standardProgression",
+            "label": "Cancelled",
+            "action": "Cancelled",
             "submenuButtons": []
           }
         ]
