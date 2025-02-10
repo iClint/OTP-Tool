@@ -18,7 +18,6 @@
 
 /* ✅ Ensure textarea is full width */
 .full-width {
-  height: 600px;
   width: 100%;
   max-width: 900px;
   flex-grow: 1;

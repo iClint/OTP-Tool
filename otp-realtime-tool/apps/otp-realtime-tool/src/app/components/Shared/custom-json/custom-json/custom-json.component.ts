@@ -42,7 +42,7 @@ export class CustomJsonComponent implements OnInit {
     this.httpClientService
       .getFixture(proposition, fixture)
       .subscribe((newFixture) => {
-        this.fixture = { ...newFixture };
+        this.fixture = newFixture;
         console.log('fixture', this.fixture);
         this.cdr.detectChanges();
       });
