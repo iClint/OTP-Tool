@@ -21,7 +21,7 @@ import { CommonModule } from '@angular/common';
 })
 export class CustomJsonComponent implements OnInit {
   @Input({ required: true }) proposition!: string;
-  @Input({ required: true }) jsonFixtures!: any;
+  public jsonFixtures!: any;
   public fixture: any;
   constructor(
     private httpClientService: HttpClientService,
