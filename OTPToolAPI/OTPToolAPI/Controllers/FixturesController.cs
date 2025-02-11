@@ -1,6 +1,4 @@
-using System.Text.Json;
 using Microsoft.AspNetCore.Mvc;
-using OTPToolAPI.Services;
 
 namespace OTPToolAPI.Controllers
 {
@@ -13,33 +11,47 @@ namespace OTPToolAPI.Controllers
         [HttpGet("")]
         public IActionResult GetFixtureList(string proposition)
         {
-            var directoryPath = Path.Combine(BasePath, proposition);
-
-            if (!Directory.Exists(directoryPath))
+            try
             {
-                return NotFound($"No fixtures found for proposition: {proposition}");
+                var directoryPath = Path.Combine(BasePath, proposition);
+
+                if (!Directory.Exists(directoryPath))
+                {
+                    return NotFound(new { error = "No fixtures found", proposition });
+                }
+
+                var fixtureFiles = Directory.GetFiles(directoryPath, "*.json")
+                    .Select(Path.GetFileName)
+                    .OrderBy(name => name)
+                    .ToList();
+
+                return Ok(fixtureFiles);
             }
-
-            var fixtureFiles = Directory.GetFiles(directoryPath, "*.json")
-                .Select(Path.GetFileName)
-                .OrderBy(name => name)
-                .ToList();
-
-            return Ok(fixtureFiles);
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { error = "Internal Server Error", details = ex.Message });
+            }
         }
 
         [HttpGet("{fixtureName}")]
         public IActionResult GetFixture(string proposition, string fixtureName)
         {
-            var filePath = Path.Combine(BasePath, proposition, fixtureName);
-
-            if (!System.IO.File.Exists(filePath))
+            try
             {
-                return NotFound($"Fixture file not found! Proposition: {proposition}, Fixture: {fixtureName}");
-            }
+                var filePath = Path.Combine(BasePath, proposition, fixtureName);
 
-            var json = System.IO.File.ReadAllText(filePath);
-            return Content(json, "application/json");
+                if (!System.IO.File.Exists(filePath))
+                {
+                    return NotFound(new { error = "Fixture file not found", proposition, fixtureName });
+                }
+
+                var json = System.IO.File.ReadAllText(filePath);
+                return Content(json, "application/json");
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { error = "Internal Server Error", details = ex.Message });
+            }
         }
     }
 }

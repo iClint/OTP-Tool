@@ -39,16 +39,19 @@ public class OrderTrackingService
 
             var orderUpdateEvent = JsonSerializer.Deserialize<OrderUpdateEvent>(jsonString, options);
 
-            var orderUpdateNotification = new OrderTrackingNotification<OrderUpdateEvent>
+            if (orderUpdateEvent != null)
             {
-                MessageId = Guid.NewGuid().ToString(),
-                CorrelationId = Guid.NewGuid().ToString(),
-                MessageType = TrackingEventType.OrderUpdated,
-                Payload = orderUpdateEvent // ✅ Now it's an object, not a string
-            };
+                var orderUpdateNotification = new OrderTrackingNotification<OrderUpdateEvent>
+                {
+                    MessageId = Guid.NewGuid().ToString(),
+                    CorrelationId = Guid.NewGuid().ToString(),
+                    MessageType = TrackingEventType.OrderUpdated,
+                    Payload = orderUpdateEvent // ✅ Now it's an object, not a string
+                };
 
-            await _hubContext.Clients.All.SendAsync("OnMessageReceived", orderUpdateNotification);
-            Console.WriteLine($"Sent OrderUpdate message from {fixturePath}: {orderUpdateNotification.MessageId}");
+                await _hubContext.Clients.All.SendAsync("OnMessageReceived", orderUpdateNotification);
+                Console.WriteLine($"Sent OrderUpdate message from {fixturePath}: {orderUpdateNotification.MessageId}");
+            }
         }
         else
         {
@@ -56,7 +59,7 @@ public class OrderTrackingService
         }
     }
 
-    public async Task sendCustomMessage(string jsonString)
+    public async Task SendCustomMessage(string jsonString)
     {
         var options = new JsonSerializerOptions
         {
@@ -67,16 +70,19 @@ public class OrderTrackingService
 
         var orderUpdateEvent = JsonSerializer.Deserialize<OrderUpdateEvent>(jsonString, options);
 
-        var orderUpdateNotification = new OrderTrackingNotification<OrderUpdateEvent>
+        if (orderUpdateEvent != null)
         {
-            MessageId = Guid.NewGuid().ToString(),
-            CorrelationId = Guid.NewGuid().ToString(),
-            MessageType = TrackingEventType.OrderUpdated,
-            Payload = orderUpdateEvent // ✅ Now it's an object, not a string
-        };
+            var orderUpdateNotification = new OrderTrackingNotification<OrderUpdateEvent>
+            {
+                MessageId = Guid.NewGuid().ToString(),
+                CorrelationId = Guid.NewGuid().ToString(),
+                MessageType = TrackingEventType.OrderUpdated,
+                Payload = orderUpdateEvent // ✅ Now it's an object, not a string
+            };
 
-        await _hubContext.Clients.All.SendAsync("OnMessageReceived", orderUpdateNotification);
-        Console.WriteLine($"Sent custom payload: {orderUpdateNotification.MessageId}");
+            await _hubContext.Clients.All.SendAsync("OnMessageReceived", orderUpdateNotification);
+            Console.WriteLine($"Sent custom payload: {orderUpdateNotification.MessageId}");
+        }
     }
 
     // Method to send a LocationUpdated message

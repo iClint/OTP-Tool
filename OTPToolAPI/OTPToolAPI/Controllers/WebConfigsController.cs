@@ -8,6 +8,8 @@ namespace OTPToolAPI.Controllers;
 [Route("[controller]")]
 public class WebConfigsController : ControllerBase
 {
+    private const string ConfigFilePath = "Data/WebConfigs/web-configs.json";
+
     [HttpGet(Name = "GetWebConfigs")]
     public IActionResult GetConfig()
     {
@@ -16,12 +18,19 @@ public class WebConfigsController : ControllerBase
 
     private IActionResult GetWebConfig()
     {
-        if (!FileIO.Exists($"Data/WebConfigs/web-configs.json"))
+        try
         {
-            return BadRequest($"Config file does not found!");
+            if (!FileIO.Exists(ConfigFilePath))
+            {
+                return NotFound(new { error = "Config file not found", path = ConfigFilePath });
+            }
+
+            var json = FileIO.ReadAllText(ConfigFilePath);
+            return Content(json, "application/json");
         }
-        
-        var json = FileIO.ReadAllText($"Data/WebConfigs/web-configs.json");
-        return Content(json, "application/json");;
+        catch (Exception ex)
+        {
+            return StatusCode(500, new { error = "Internal Server Error", details = ex.Message });
+        }
     }
 }
