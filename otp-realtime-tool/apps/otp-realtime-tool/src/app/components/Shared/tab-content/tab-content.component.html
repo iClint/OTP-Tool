@@ -1,14 +1,8 @@
 <div class="tab-content">
   <standard-progression [config]="config"></standard-progression>
 
-  @if(config.showPreview) {
-  <div class="resizable-container">
-    {{ config.showPreview }}
-    <h2 class="space">iFrame Preview</h2>
-    <iframe [src]="sanitizedUrl" frameborder="0"></iframe>
-    <div class="right-aligned">Drag anchor to ressize preview</div>
-  </div>
-  } @if(config.showCustomPayload) {
-  <custom-json [proposition]="config.proposition"></custom-json>
-  }
+  @if(config.showPreview) {<app-otp-preview [previewUrl]="config.previewUrl" />}
+  @if(config.showCustomPayload) {<custom-json
+    [proposition]="config.proposition"
+  />}
 </div>

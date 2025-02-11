@@ -1,0 +1,40 @@
+.resizable-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 10px;
+  resize: horizontal;
+  overflow: hidden;
+  min-width: 425px;
+  max-width: 60vw;
+  width: auto;
+  flex-shrink: 0;
+}
+
+iframe {
+  width: 100%;
+  height: 800px;
+  border: 10px solid #2e2e2e;
+  border-radius: 20px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.refresh {
+  width: 36px;
+  height: 36px;
+  padding: 0;
+}
+
+.left-aligned {
+  align-self: flex-start;
+}
+
+.right-aligned {
+  align-self: flex-end;
+}

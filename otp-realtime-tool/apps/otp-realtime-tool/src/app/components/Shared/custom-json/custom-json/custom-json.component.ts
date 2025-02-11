@@ -5,6 +5,7 @@ import { MatInputModule } from '@angular/material/input';
 import { HttpClientService } from 'apps/otp-realtime-tool/src/app/services/http-service/http-client.service';
 import { MatSelectModule } from '@angular/material/select';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'custom-json',
@@ -15,6 +16,7 @@ import { CommonModule } from '@angular/common';
     MatFormFieldModule,
     MatInputModule,
     MatSelectModule,
+    FormsModule,
   ],
   templateUrl: './custom-json.component.html',
   styleUrl: './custom-json.component.css',
@@ -23,6 +25,8 @@ export class CustomJsonComponent implements OnInit {
   @Input({ required: true }) proposition!: string;
   public jsonFixtures!: any;
   public fixture: any;
+  public inputData: string = '';
+
   constructor(
     private httpClientService: HttpClientService,
     private cdr: ChangeDetectorRef
@@ -38,34 +42,35 @@ export class CustomJsonComponent implements OnInit {
 
   onFixtureChange(proposition: string, fixture: string): void {
     this.fixture = null;
+    this.inputData = '';
+    this.cdr.detectChanges();
 
-    this.httpClientService
-      .getFixture(proposition, fixture)
-      .subscribe((newFixture) => {
+    this.httpClientService.getFixture(proposition, fixture).subscribe({
+      next: (newFixture) => {
         this.fixture = newFixture;
-        console.log('fixture', this.fixture);
+        this.inputData = JSON.stringify(newFixture, null, 4);
         this.cdr.detectChanges();
-      });
+      },
+      error: (error) => {
+        console.error('Error fetching fixture:', error);
+      },
+    });
   }
 
-  onSendPayload(jsonString: string): void {
-    if (!jsonString) {
+  onSendPayload(): void {
+    if (!this.inputData) {
       alert('No JSON payload provided');
       return;
     }
 
     try {
-      const jsonObject = JSON.parse(jsonString);
+      const jsonObject = JSON.parse(this.inputData);
       this.httpClientService.postCustomMessage(jsonObject).subscribe({
         next: (response) => console.log('Success:', response),
         error: (error) => console.error('Error:', error),
       });
     } catch (error) {
-      alert('Invalid JSON:');
+      alert('Invalid JSON: ' + error);
     }
-  }
-
-  get inputData(): string {
-    return this.fixture ? JSON.stringify(this.fixture, null, 4) : '';
   }
 }

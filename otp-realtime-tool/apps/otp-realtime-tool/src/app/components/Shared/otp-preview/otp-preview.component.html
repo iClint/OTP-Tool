@@ -1,0 +1,10 @@
+<div class="resizable-container">
+  <div class="header">
+    <h2>Preview</h2>
+    <button mat-icon-button class="refresh" (click)="onRefresh()">
+      <mat-icon>refresh</mat-icon>
+    </button>
+  </div>
+  <iframe [src]="sanitizedUrl" frameborder="0"></iframe>
+  <div class="right-aligned">Drag anchor to ressize preview</div>
+</div>
