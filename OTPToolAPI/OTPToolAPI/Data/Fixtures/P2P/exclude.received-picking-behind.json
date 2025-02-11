@@ -13,7 +13,7 @@
     "endTime": "2024-08-19T19:20:34.0591700+10:00",
     "bufferType": "Standard"
   },
-  "notifications": [],
+  "notifications": ["PickingBehind"],
   "coreStatuses": [
     {
       "timeStamp": "2024-08-19T12:27:35.1946040+10:00",

@@ -76,8 +76,8 @@
             "action": "received",
             "submenuButtons": [
               {
-                "label": "Change My Order Open",
-                "action": "standardProgression"
+                "label": "Carrier assigned",
+                "action": "received-carrier-assigned"
               }
             ]
           },
@@ -222,8 +222,12 @@
             "action": "received",
             "submenuButtons": [
               {
-                "label": "Change My Order Open",
-                "action": "standardProgression"
+                "label": "Carrier assigned",
+                "action": "exclude.received-carrier-assigned"
+              },
+              {
+                "label": "Carrier/driver assigned",
+                "action": "exclude.received-carrier-driver-assigned"
               }
             ]
           },

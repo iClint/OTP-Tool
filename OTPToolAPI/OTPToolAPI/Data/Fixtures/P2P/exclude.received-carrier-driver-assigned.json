@@ -1,10 +1,10 @@
 {
-  "carrierName": "",
-  "driverName": "",
+  "carrierName": "Uber",
+  "driverName": "John Smith",
   "driverTrackingUrl": "",
   "driverMobileNumber": "",
   "driverProofOfDeliveryPhotoUrl": "",
-  "driverStatus": [],
+  "driverStatus": ["Assigned"],
   "projectedDeliveryTime": {
     "status": "OnTime",
     "originalStartTime": "2024-08-19T18:42:34.0584300+10:00",

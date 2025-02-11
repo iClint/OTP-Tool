@@ -74,12 +74,7 @@
           {
             "label": "Received",
             "action": "received",
-            "submenuButtons": [
-              {
-                "label": "Change My Order Open",
-                "action": "standardProgression"
-              }
-            ]
+            "submenuButtons": []
           },
           {
             "label": "Preparing",
@@ -94,51 +89,17 @@
           {
             "label": "On Its Way",
             "action": "onItsWay",
-            "submenuButtons": [
-              {
-                "label": "Restricted Items Vic",
-                "action": "standardProgression"
-              },
-              {
-                "label": "Restricted Items Default",
-                "action": "standardProgression"
-              },              {
-                "label": "Restricted Items Vic Late",
-                "action": "standardProgression"
-              },
-              {
-                "label": "Restricted Items Default Late",
-                "action": "standardProgression"
-              }
-            ]
+            "submenuButtons": []
           },
           {
             "label": "Next In Line",
             "action": "nextInLine",
-            "submenuButtons": [
-              {
-                "label": "Restricted Items Vic",
-                "action": "standardProgression"
-              },
-              {
-                "label": "Restricted Items Default",
-                "action": "standardProgression"
-              }
-            ]
+            "submenuButtons": []
           },
           {
             "label": "Arriving",
             "action": "arriving",
-            "submenuButtons": [
-              {
-                "label": "Restricted Items Vic",
-                "action": "standardProgression"
-              },
-              {
-                "label": "Restricted Items Default",
-                "action": "standardProgression"
-              }
-            ]
+            "submenuButtons": []
           },
           {
             "label": "Delivered",
@@ -222,8 +183,16 @@
             "action": "received",
             "submenuButtons": [
               {
-                "label": "Change My Order Open",
-                "action": "standardProgression"
+                "label": "Carrier assigned",
+                "action": "exclude.received-carrier-assigned"
+              },
+              {
+                "label": "Carrier/driver assigned",
+                "action": "exclude.received-carrier-driver-assigned"
+              },
+              {
+                "label": "Picking Behind",
+                "action": "exclude.received-picking-behind"
               }
             ]
           },
@@ -250,30 +219,12 @@
           {
             "label": "On Its Way",
             "action": "onItsWay",
-            "submenuButtons": [
-              {
-                "label": "Restricted Items Vic",
-                "action": "standardProgression"
-              },
-              {
-                "label": "Restricted Items Default",
-                "action": "standardProgression"
-              }
-            ]
+            "submenuButtons": []
           },
           {
             "label": "Arriving",
             "action": "arriving",
-            "submenuButtons": [
-              {
-                "label": "Restricted Items Vic",
-                "action": "standardProgression"
-              },
-              {
-                "label": "Restricted Items Default",
-                "action": "standardProgression"
-              }
-            ]
+            "submenuButtons": []
           },
           {
             "label": "Delivered",

@@ -22,7 +22,8 @@ namespace OTPToolAPI.Controllers
 
                 var fixtureFiles = Directory.GetFiles(directoryPath, "*.json")
                     .Select(Path.GetFileName)
-                    .OrderBy(name => name)
+                    .Where(name => !name.Contains("exclude")) // Exclude files first
+                    .OrderBy(name => name) // Then order
                     .ToList();
 
                 return Ok(fixtureFiles);
