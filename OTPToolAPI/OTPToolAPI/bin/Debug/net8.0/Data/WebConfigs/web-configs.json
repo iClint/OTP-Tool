@@ -8,7 +8,69 @@
         "showCustomPayload": true,
         "showPreview": true,
         "previewUrl": "http://localhost:4003/track?token=140081940",
-        "buttons": [
+      "previewUrls": [
+        {
+          "label": "Received",
+          "url": "http://localhost:4003/track?token=140081940"
+        },
+        {
+          "label": "Received - Change my order open",
+          "url": "http://localhost:4003/track?token=140081941"
+        },
+        {
+          "label": "Preparing",
+          "url": "http://localhost:4003/track?token=140082041"
+        },
+        {
+          "label": "Prepared",
+          "url": "http://localhost:4003/track?token=140083412"
+        },
+        {
+          "label": "OnItsWay",
+          "url": "http://localhost:4003/track?token=140087111"
+        },
+        {
+          "label": "OnItsWay - restricted items VIC",
+          "url": "http://localhost:4003/track?token=140087112"
+        },
+        {
+          "label": "OnItsWay - restricted items default",
+          "url": "http://localhost:4003/track?token=140087113"
+        },
+        {
+          "label": "NextInline",
+          "url": "http://localhost:4003/track?token=140087211"
+        },
+        {
+          "label": "NextInline - restricted items VIC",
+          "url": "http://localhost:4003/track?token=140087212"
+        },
+        {
+          "label": "NextInline - restricted items default",
+          "url": "http://localhost:4003/track?token=140087213"
+        },
+        {
+          "label": "Arriving",
+          "url": "http://localhost:4003/track?token=140640380"
+        },
+        {
+          "label": "Arriving - restricted items VIC",
+          "url": "http://localhost:4003/track?token=140087538"
+        },
+        {
+          "label": "Arriving - restricted items default",
+          "url": "http://localhost:4003/track?token=140087539"
+        },
+        {
+          "label": "Delivered",
+          "url": "http://localhost:4003/track?token=140082039"
+        },
+        {
+          "label": "Cancelled",
+          "url": "http://localhost:4003/track?token=140080404"
+        }
+      ],
+    "buttons": [
           {
             "label": "Received",
             "action": "received",
@@ -99,6 +161,61 @@
         "showCustomPayload": true,
         "showPreview": true,
         "previewUrl": "http://localhost:4003/track?token=150328588",
+      "previewUrls": [
+        {
+          "label": "Received",
+          "url": "http://localhost:4003/track?token=150328588"
+        },
+        {
+          "label": "Received - Change my order",
+          "url": "http://localhost:4003/track?token=150328589"
+        },
+        {
+          "label": "Preparing",
+          "url": "http://localhost:4003/track?token=140082042"
+        },
+        {
+          "label": "Prepared",
+          "url": "http://localhost:4003/track?token=150083412"
+        },
+        {
+          "label": "OnItsWay - No restricted",
+          "url": "http://localhost:4003/track?token=150087111"
+        },
+        {
+          "label": "OnItsWay - States excluding VIC restricted",
+          "url": "http://localhost:4003/track?token=150087112"
+        },
+        {
+          "label": "OnItsWay - VIC restricted",
+          "url": "http://localhost:4003/track?token=150087113"
+        },
+        {
+          "label": "Arriving - No restricted",
+          "url": "http://localhost:4003/track?token=150087211"
+        },
+        {
+          "label": "Arriving - States excluding VIC restricted",
+          "url": "http://localhost:4003/track?token=150087212"
+        },
+        {
+          "label": "Arriving - VIC restricted",
+          "url": "http://localhost:4003/track?token=150087213"
+        },
+        {
+          "label": "Delivered",
+          "url": "http://localhost:4003/track?token=150087537"
+        },
+        {
+          "label": "Delivered - Frozen items",
+          "url": "http://localhost:4003/track?token=150087538"
+        },
+        {
+          "label": "Cancelled",
+          "url": "http://localhost:4003/track?token=150082039"
+        }
+      ],
+
         "buttons": [
           {
             "label": "Received",

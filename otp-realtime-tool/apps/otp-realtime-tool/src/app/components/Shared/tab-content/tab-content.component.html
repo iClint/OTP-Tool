@@ -1,8 +1,10 @@
 <div class="tab-content">
   <standard-progression [config]="config"></standard-progression>
 
-  @if(config.showPreview) {<app-otp-preview [previewUrl]="config.previewUrl" />}
-  @if(config.showCustomPayload) {<custom-json
+  @if(config.showPreview) {<app-otp-preview
+    [previewUrl]="config.previewUrl"
+    [previewUrls]="config.previewUrls"
+  />} @if(config.showCustomPayload) {<custom-json
     [proposition]="config.proposition"
   />}
 </div>
