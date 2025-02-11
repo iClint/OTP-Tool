@@ -55,7 +55,7 @@ export class CustomJsonComponent implements OnInit {
     }
 
     try {
-      const jsonObject = JSON.parse(jsonString); // ✅ Ensure it's a valid JSON object
+      const jsonObject = JSON.parse(jsonString);
       this.httpClientService.postCustomMessage(jsonObject).subscribe({
         next: (response) => console.log('Success:', response),
         error: (error) => console.error('Error:', error),

@@ -1,7 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { httpClientServiceConfig } from './http-client.service.config';
-import { Proposition } from '../../models/proposition.model';
 
 @Injectable({
   providedIn: 'root',
