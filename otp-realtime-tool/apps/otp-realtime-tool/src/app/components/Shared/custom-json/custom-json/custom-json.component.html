@@ -7,9 +7,11 @@
       <mat-select
         (selectionChange)="onFixtureChange(proposition, $event.value)"
       >
-        <mat-option *ngFor="let fixture of jsonFixtures" [value]="fixture">
-          {{ fixture }}
-        </mat-option>
+        @for(fixture of jsonFixtures;track fixture){<mat-option
+          [value]="fixture"
+        >
+          {{ fixture }} </mat-option
+        >}
       </mat-select>
     </mat-form-field>
   </div>
