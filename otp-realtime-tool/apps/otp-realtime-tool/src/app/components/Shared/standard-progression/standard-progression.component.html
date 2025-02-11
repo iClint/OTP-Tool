@@ -12,9 +12,7 @@
         (click)="onButtonClick(button.action)"
       >
         <span>{{ button.label }}</span>
-        <mat-icon *ngIf="button.submenuButtons?.length > 0"
-          >arrow_right</mat-icon
-        >
+        @if(button.submenuButtons?.length > 0){<mat-icon>arrow_right</mat-icon>}
       </button>
     </div>
     <div
