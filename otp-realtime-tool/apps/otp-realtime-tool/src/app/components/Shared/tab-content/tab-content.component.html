@@ -1,18 +1,12 @@
 <div class="tab-content">
   @if(config.presetMessages.showComponent){
-  <div>
-    <preset-messages
-      [config]="config.presetMessages"
-      [proposition]="config.proposition"
-    />
-  </div>
+  <preset-messages
+    [config]="config.presetMessages"
+    [proposition]="config.proposition"
+  />
   } @if(config.otpPreview.showComponent) {
-  <div>
-    <app-otp-preview [config]="config.otpPreview" />
-  </div>
+  <app-otp-preview [config]="config.otpPreview" />
   } @if(config.customPayload.showComponent) {
-  <div>
-    <custom-json [proposition]="config.proposition" />
-  </div>
+  <custom-json [proposition]="config.proposition" />
   }
 </div>
