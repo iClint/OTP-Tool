@@ -1,28 +1,16 @@
-import { Component, Input, OnInit, Sanitizer } from '@angular/core';
-import { StandardProgressionComponent } from '../standard-progression/standard-progression.component';
+import { Component, Input } from '@angular/core';
+import { PresetMessagesComponent } from '../preset-messages/preset-messages.component';
 import { CustomJsonComponent } from '../custom-json/custom-json/custom-json.component';
 import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
 import { OtpPreviewComponent } from '../otp-preview/otp-preview.component';
+import { TabContent } from '../../../models/config-app.model';
 
 @Component({
   selector: 'tab-content',
-  imports: [
-    StandardProgressionComponent,
-    CustomJsonComponent,
-    OtpPreviewComponent,
-  ],
+  imports: [PresetMessagesComponent, CustomJsonComponent, OtpPreviewComponent],
   templateUrl: './tab-content.component.html',
   styleUrl: './tab-content.component.css',
 })
-export class TabContentComponent implements OnInit {
-  @Input({ required: true }) config: any;
-  public sanitizedUrl!: SafeUrl;
-
-  constructor(private sanitizer: DomSanitizer) {}
-
-  ngOnInit(): void {
-    this.sanitizedUrl = this.sanitizer.bypassSecurityTrustResourceUrl(
-      this.config.previewUrl
-    );
-  }
+export class TabContentComponent {
+  @Input({ required: true }) config!: TabContent;
 }

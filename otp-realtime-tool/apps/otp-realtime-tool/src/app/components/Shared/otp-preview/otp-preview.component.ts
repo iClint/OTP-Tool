@@ -5,6 +5,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatSelectModule } from '@angular/material/select';
 import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
+import { OtpPreview } from '../../../models/config-app.model';
 
 @Component({
   selector: 'app-otp-preview',
@@ -19,27 +20,25 @@ import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
   styleUrl: './otp-preview.component.css',
 })
 export class OtpPreviewComponent {
-  @Input({ required: true }) previewUrl!: any;
-  @Input({ required: true }) previewUrls!: { label: string; url: string }[];
+  @Input({ required: true }) config!: OtpPreview;
   public sanitizedUrl!: SafeUrl;
 
   constructor(private sanitizer: DomSanitizer) {}
 
   ngOnInit(): void {
-    console.log('previewUrls', this.previewUrls);
     this.sanitizedUrl = this.sanitizer.bypassSecurityTrustResourceUrl(
-      this.previewUrl
+      this.config.previewUrl
     );
   }
 
   public onPreviewUrlChange(url: string): void {
-    this.previewUrl = url;
+    this.config.previewUrl = url;
     this.onRefresh();
   }
 
   public onRefresh(): void {
     this.sanitizedUrl = this.sanitizer.bypassSecurityTrustResourceUrl(
-      this.previewUrl
+      this.config.previewUrl
     );
   }
 }

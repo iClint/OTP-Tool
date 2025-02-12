@@ -1,10 +1,10 @@
 <mat-tab-group>
-  @for (tab of config?.tabs; track tab) {
+  @for (tab of config; track tab.label) {
   <mat-tab>
     <ng-template mat-tab-label>
       <div class="tab-label-container">
         <img class="tab-icon" [src]="tab.icon" alt="{{ tab.label }} icon" />
-        <span class="tab-label">{{ tab.tabLabel }}</span>
+        <span class="tab-label">{{ tab.label }}</span>
       </div>
     </ng-template>
 

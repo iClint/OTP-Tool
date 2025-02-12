@@ -4,16 +4,18 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatIconModule } from '@angular/material/icon';
 import { HttpClientService } from '../../../services/http-service/http-client.service';
+import { PresetMessages } from '../../../models/config-app.model';
 
 @Component({
-  selector: 'standard-progression',
+  selector: 'preset-messages',
   standalone: true,
   imports: [CommonModule, MatButtonModule, MatExpansionModule, MatIconModule],
-  templateUrl: './standard-progression.component.html',
-  styleUrl: './standard-progression.component.css',
+  templateUrl: './preset-messages.component.html',
+  styleUrl: './preset-messages.component.css',
 })
-export class StandardProgressionComponent {
-  @Input({ required: true }) config!: any;
+export class PresetMessagesComponent {
+  @Input({ required: true }) config!: PresetMessages;
+  @Input({ required: true }) public proposition!: string;
   public hoveredIndex: number | null = null;
 
   private hideTimeout: ReturnType<typeof setTimeout> | undefined;
@@ -31,9 +33,9 @@ export class StandardProgressionComponent {
   }
 
   onButtonClick(action: string) {
-    console.log('button clicked - action: ', this.config.proposition, action);
+    console.log('button clicked - action: ', this.proposition, action);
     this.httpCLientService
-      .getSendPresetMessage(this.config.proposition, action)
+      .getSendPresetMessage(this.proposition, action)
       .subscribe({ next: (response) => {}, error: (errror) => {} });
     // todo: handle response and error passing values to a dialog component
   }

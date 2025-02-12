@@ -1,10 +1,18 @@
 <div class="tab-content">
-  <standard-progression [config]="config"></standard-progression>
-
-  @if(config.showPreview) {<app-otp-preview
-    [previewUrl]="config.previewUrl"
-    [previewUrls]="config.previewUrls"
-  />} @if(config.showCustomPayload) {<custom-json
-    [proposition]="config.proposition"
-  />}
+  @if(config.presetMessages.showComponent){
+  <div>
+    <preset-messages
+      [config]="config.presetMessages"
+      [proposition]="config.proposition"
+    />
+  </div>
+  } @if(config.otpPreview.showComponent) {
+  <div>
+    <app-otp-preview [config]="config.otpPreview" />
+  </div>
+  } @if(config.customPayload.showComponent) {
+  <div>
+    <custom-json [proposition]="config.proposition" />
+  </div>
+  }
 </div>

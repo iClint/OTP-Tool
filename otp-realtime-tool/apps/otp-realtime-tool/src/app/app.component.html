@@ -1,3 +1,14 @@
-<app-header></app-header> @if(config){<app-tabs [config]="config"></app-tabs>}
-@else{<app-error />}
-<router-outlet></router-outlet>
+<div>
+  <app-header></app-header>
+</div>
+@if(config){
+<div>
+  <app-tabs [config]="config.tabs"></app-tabs>
+</div>
+} @else{
+<div>
+  <app-error />
+</div>
+}
+<!-- Todo: Remove router-outlet and router if we dont need it -->
+<!-- <router-outlet></router-outlet> -->

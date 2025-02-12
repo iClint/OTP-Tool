@@ -3,7 +3,7 @@
     <mat-form-field class="full-width">
       <mat-label>Load Stubby </mat-label>
       <mat-select (selectionChange)="onPreviewUrlChange($event.value)">
-        @for(stubby of previewUrls;track stubby.url){<mat-option
+        @for(stubby of config.previewUrls;track stubby.url){<mat-option
           [value]="stubby.url"
           >{{ stubby.label }} </mat-option
         >}

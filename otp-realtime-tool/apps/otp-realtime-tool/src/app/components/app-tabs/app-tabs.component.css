@@ -17,3 +17,22 @@
 .mat-mdc-tab.mdc-tab--active .mdc-tab__text-label {
   color: rgb(45, 68, 216) !important;
 }
+
+.mdc-tab:not(.mdc-tab--active) {
+  background-color: #c2c2c27a !important;
+  box-shadow: inset 0px -5px 5px -1px #000000;
+}
+
+.mdc-tab:not(.mdc-tab--active) {
+  background-color: #f5f5f5; /* Light grey for inactive tabs */
+  box-shadow: inset 0px 5px 8px rgba(0, 0, 0, 0.2); /* Soft inset shadow */
+  transform: translateY(2px); /* Slight downward shift */
+  z-index: 0; /* Keeps it below the active tab */
+}
+
+.mdc-tab.mdc-tab--active {
+  background-color: white; /* Active tab stands out */
+  box-shadow: none; /* No shadow for active tab */
+  transform: translateY(0); /* Active tab stays at the default position */
+  z-index: 1; /* Active tab on top */
+}

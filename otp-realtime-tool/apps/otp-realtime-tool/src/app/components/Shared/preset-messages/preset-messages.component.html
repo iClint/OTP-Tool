@@ -1,7 +1,7 @@
 <h2>SignalR message</h2>
 <p>Send Preset Message</p>
 <div class="button-container">
-  @for(button of config?.buttons;track $index){
+  @for(button of config.previewButtons;track $index){
   <div class="button-container-row menu-wrapper">
     <div>
       <button
@@ -9,10 +9,10 @@
         class="button"
         (mouseenter)="onMouseEnter($index)"
         (mouseleave)="onMouseLeave()"
-        (click)="onButtonClick(button.action)"
+        (click)="onButtonClick(button.fixture)"
       >
         <span>{{ button.label }}</span>
-        @if(button.submenuButtons?.length > 0){<mat-icon>arrow_right</mat-icon>}
+        @if(button.submenuButtons.length > 0){<mat-icon>arrow_right</mat-icon>}
       </button>
     </div>
     <div
@@ -21,13 +21,13 @@
       (mouseenter)="onMouseEnter($index)"
       (mouseleave)="onMouseLeave()"
     >
-      <div cclass="submenu-button-container">
+      <div class="submenu-button-container">
         @for(item of button.submenuButtons;track $index){
         <div>
           <button
             mat-raised-button
             class="button submenu-button"
-            (click)="onButtonClick(item.action)"
+            (click)="onButtonClick(item.fixture)"
           >
             {{ item.label }}
           </button>

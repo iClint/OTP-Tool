@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { headerComponentConfig } from './header.component.config';
+import { HeaderComponentConfig } from '../../models/header-component-config.model';
 
 @Component({
   selector: 'app-header',
@@ -8,5 +9,5 @@ import { headerComponentConfig } from './header.component.config';
   styleUrl: './header.component.css',
 })
 export class HeaderComponent {
-  public config = headerComponentConfig;
+  public config: HeaderComponentConfig = headerComponentConfig;
 }
