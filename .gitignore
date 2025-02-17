@@ -84,3 +84,4 @@ lerna-debug.log*
 *.pdb
 *.dll
 *.DotSettings
+OTPToolAPI/OTPToolAPI/bin/*

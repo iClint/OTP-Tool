@@ -41,4 +41,8 @@ export class OtpPreviewComponent {
       this.config.previewUrl
     );
   }
+
+  public onOpenInNewTab(): void {
+    window.open(this.config.previewUrl, '_blank');
+  }
 }

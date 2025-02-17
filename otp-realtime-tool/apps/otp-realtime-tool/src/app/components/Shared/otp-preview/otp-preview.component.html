@@ -9,9 +9,14 @@
         >}
       </mat-select>
     </mat-form-field>
-    <button mat-icon-button class="refresh" (click)="onRefresh()">
-      <mat-icon>refresh</mat-icon>
-    </button>
+    <div class="actions">
+      <button mat-icon-button class="action-buttons" (click)="onOpenInNewTab()">
+        <mat-icon>open_in_new</mat-icon>
+      </button>
+      <button mat-icon-button class="action-buttons" (click)="onRefresh()">
+        <mat-icon>refresh</mat-icon>
+      </button>
+    </div>
   </div>
   <iframe [src]="sanitizedUrl" frameborder="0"></iframe>
   <div class="right-aligned">Drag anchor to ressize preview</div>

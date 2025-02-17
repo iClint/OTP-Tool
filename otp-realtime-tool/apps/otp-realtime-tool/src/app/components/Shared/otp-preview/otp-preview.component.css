@@ -26,11 +26,18 @@ iframe {
   width: 100%;
 }
 
-.full-width {
-  width: 80%;
+.actions {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
 }
 
-.refresh {
+.full-width {
+  min-width: 250px;
+  width: 100%;
+}
+
+.action-buttons {
   display: flex;
   align-items: center;
   justify-content: center;
