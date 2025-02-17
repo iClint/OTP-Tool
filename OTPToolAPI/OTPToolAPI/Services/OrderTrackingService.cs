@@ -86,22 +86,27 @@ public class OrderTrackingService
     }
 
     // Method to send a LocationUpdated message
-    public async Task SendLocationUpdatedMessage()
+    public async Task SendLocationUpdatedMessage(TrackingEventType eventType, object message)
     {
-        var locationUpdateNotification = new OrderTrackingNotification<LocationUpdatePayload>
+        
+        Console.WriteLine($"the message = {message}");
+        
+        var json =  JsonSerializer.Serialize(message);
+        
+        var payload = JsonSerializer.Deserialize<LocationUpdatePayload>(json);
+
+        var locationUpdateNotification = new OrderTrackingNotification<LocationUpdatePayload?>
         {
             MessageId = Guid.NewGuid().ToString(),
             CorrelationId = Guid.NewGuid().ToString(),
-            MessageType = TrackingEventType.LocationUpdated,
-            Payload = new LocationUpdatePayload
-            {
-                Latitude = -33.8688,
-                Longitude = 151.2093
-            }
+            MessageType = eventType,
+            Payload = payload
         };
 
         await _hubContext.Clients.All.SendAsync("OnMessageReceived", locationUpdateNotification);
-        Console.WriteLine($"Sent LocationUpdated message: {locationUpdateNotification.MessageId}");
+        if (locationUpdateNotification.Payload != null)
+            Console.WriteLine(
+                $"Sent LocationUpdated message: {locationUpdateNotification.MessageId} {locationUpdateNotification.Payload.Latitude}, {locationUpdateNotification.Payload.Longitude}");
     }
 
     // Method to send a random LocationUpdated message

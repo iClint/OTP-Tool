@@ -3,10 +3,16 @@ import { PresetMessagesComponent } from '../preset-messages/preset-messages.comp
 import { CustomJsonComponent } from '../custom-json/custom-json/custom-json.component';
 import { OtpPreviewComponent } from '../otp-preview/otp-preview.component';
 import { TabContent } from '../../../models/config-app.model';
+import { SendMapUpdateComponent } from '../send-map-update/send-map-update.component';
 
 @Component({
   selector: 'tab-content',
-  imports: [PresetMessagesComponent, CustomJsonComponent, OtpPreviewComponent],
+  imports: [
+    PresetMessagesComponent,
+    CustomJsonComponent,
+    OtpPreviewComponent,
+    SendMapUpdateComponent,
+  ],
   templateUrl: './tab-content.component.html',
   styleUrl: './tab-content.component.css',
 })

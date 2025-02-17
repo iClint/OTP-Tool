@@ -31,7 +31,11 @@ export class HttpClientService {
   }
 
   public postCustomMessage(message: any) {
-    return this.http.post(`${this.config.apiUrl}/Messages`, message, {
+    return this.http.post(`${this.config.apiUrl}/Messages`, message);
+  }
+
+  public postMapUpdateMessage(message: any) {
+    return this.http.post(`${this.config.apiUrl}/mapUpdate`, message, {
       headers: { 'Content-Type': 'application/json' },
     });
   }

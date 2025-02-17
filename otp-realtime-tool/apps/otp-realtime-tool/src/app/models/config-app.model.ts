@@ -11,6 +11,7 @@ export interface Tab {
 export interface TabContent {
   proposition: string;
   presetMessages: PresetMessages;
+  sendMapUpdates: SendMapUpdates;
   otpPreview: OtpPreview;
   customPayload: CustomPayLoad;
 }
@@ -18,6 +19,10 @@ export interface TabContent {
 export interface PresetMessages {
   showComponent: boolean;
   previewButtons: PreviewButton[];
+}
+
+export interface SendMapUpdates {
+  showComponent: boolean;
 }
 
 export interface PreviewButton {

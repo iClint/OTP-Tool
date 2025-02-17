@@ -1,0 +1,53 @@
+<div class="send-map-update">
+  <div class="send-map-update__title">Send map update</div>
+  <div class="send-map-update__content">
+    <button
+      mat-raised-button
+      class="send-map-update__button fixed-min-width"
+      (click)="onGenerateLatLon()"
+    >
+      Generate lat/lon
+    </button>
+
+    <div class="column-container">
+      <mat-form-field class="fixed-min-width no-space">
+        <mat-label>Send Latitude</mat-label>
+        <input
+          matInput
+          type="number"
+          min="-44"
+          max="-10"
+          step="0.001"
+          [(ngModel)]="lat"
+        />
+      </mat-form-field>
+      <mat-form-field class="fixed-min-width">
+        <mat-label>Send Longitude</mat-label>
+        <input
+          matInput
+          type="number"
+          min="113"
+          max="154"
+          step="0.001"
+          [(ngModel)]="lon"
+        />
+      </mat-form-field>
+      <mat-form-field class="fixed-min-width no-space">
+        <mat-label>Event type</mat-label>
+        <mat-select [(ngModel)]="selectedEventType">
+          @for(eventType of eventTypes;track eventType){
+          <mat-option [value]="eventType">{{ eventType }}</mat-option
+          >}
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+    <button
+      mat-raised-button
+      class="send-map-update__button fixed-min-width"
+      (click)="onSendMapUpdate()"
+    >
+      Send
+    </button>
+  </div>
+</div>

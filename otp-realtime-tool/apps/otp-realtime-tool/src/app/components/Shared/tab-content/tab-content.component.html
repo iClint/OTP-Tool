@@ -1,10 +1,13 @@
 <div class="tab-content">
-  @if(config.presetMessages.showComponent){
-  <preset-messages
-    [config]="config.presetMessages"
-    [proposition]="config.proposition"
-  />
-  } @if(config.otpPreview.showComponent) {
+  <div>
+    @if(config.presetMessages.showComponent){
+    <preset-messages
+      [config]="config.presetMessages"
+      [proposition]="config.proposition"
+    />
+    } @if(config.sendMapUpdates.showComponent){<send-map-update />}
+  </div>
+  @if(config.otpPreview.showComponent) {
   <app-otp-preview [config]="config.otpPreview" />
   } @if(config.customPayload.showComponent) {
   <custom-json [proposition]="config.proposition" />

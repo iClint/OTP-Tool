@@ -9,12 +9,6 @@
   align-items: flex-start;
 }
 
-standard-progression {
-  flex: 0 1 auto;
-  white-space: nowrap;
-  align-self: flex-start;
-}
-
 .resizable-container {
   display: flex;
   flex-direction: column;
