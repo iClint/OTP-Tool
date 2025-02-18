@@ -22,11 +22,6 @@ import { HttpClientService } from '../../../services/http-service/http-client.se
 export class SendMapUpdateComponent {
   public selectedEventType: TrackingEventType =
     TrackingEventType.LocationUpdated;
-  public eventTypes: TrackingEventType[] = [
-    TrackingEventType.LocationUpdated,
-    TrackingEventType.OrderArrived,
-    TrackingEventType.TrackingUnavailable,
-  ];
   private _lat: number = -33.765278;
   private _lon: number = 151.270278;
 
@@ -54,7 +49,7 @@ export class SendMapUpdateComponent {
         latitude: this._lat,
         longitude: this._lon,
       },
-      messageType: this.selectedEventType,
+      messageType: TrackingEventType.LocationUpdated,
     };
 
     if (!message) {
@@ -75,6 +70,4 @@ export class SendMapUpdateComponent {
 
     console.log('Sending map update:', message);
   }
-
-  public onGenerateLatLon(): void {}
 }
