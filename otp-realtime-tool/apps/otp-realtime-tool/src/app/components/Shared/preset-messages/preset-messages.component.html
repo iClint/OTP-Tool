@@ -1,40 +1,38 @@
 <h2>SignalR message</h2>
 <p>Send Preset Message</p>
-<div class="button-container">
-  @for(button of config.previewButtons;track $index){
-  <div class="button-container-row menu-wrapper">
-    <div>
-      <button
-        mat-raised-button
-        class="button"
-        (mouseenter)="onMouseEnter($index)"
-        (mouseleave)="onMouseLeave()"
-        (click)="onButtonClick(button.fixture)"
-      >
-        <span>{{ button.label }}</span>
-        @if(button.submenuButtons.length > 0){<mat-icon>arrow_right</mat-icon>}
-      </button>
-    </div>
-    <div
-      class="submenu"
-      [class.show]="hoveredIndex === $index"
+@for(button of config.previewButtons;track $index){
+<div class="button-container-row menu-wrapper">
+  <div>
+    <button
+      mat-raised-button
+      class="button"
       (mouseenter)="onMouseEnter($index)"
       (mouseleave)="onMouseLeave()"
+      (click)="onButtonClick(button.fixture)"
     >
-      <div class="submenu-button-container">
-        @for(item of button.submenuButtons;track $index){
-        <div>
-          <button
-            mat-raised-button
-            class="button submenu-button"
-            (click)="onButtonClick(item.fixture)"
-          >
-            {{ item.label }}
-          </button>
-        </div>
-        }
+      <span>{{ button.label }}</span>
+      @if(button.submenuButtons.length > 0){<mat-icon>arrow_right</mat-icon>}
+    </button>
+  </div>
+  <div
+    class="submenu"
+    [class.show]="hoveredIndex === $index"
+    (mouseenter)="onMouseEnter($index)"
+    (mouseleave)="onMouseLeave()"
+  >
+    <div class="submenu-button-container">
+      @for(item of button.submenuButtons;track $index){
+      <div>
+        <button
+          mat-raised-button
+          class="button submenu-button"
+          (click)="onButtonClick(item.fixture)"
+        >
+          {{ item.label }}
+        </button>
       </div>
+      }
     </div>
   </div>
-  }
 </div>
+}
