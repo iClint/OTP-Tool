@@ -6,6 +6,8 @@ import { HttpClientService } from 'apps/otp-realtime-tool/src/app/services/http-
 import { MatSelectModule } from '@angular/material/select';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { SnackBarService } from '../../../services/snack-bar/snack-bar.service';
+import { AlertType } from '../../../models/alert-type.model';
 
 @Component({
   selector: 'custom-json',
@@ -29,7 +31,8 @@ export class CustomJsonComponent implements OnInit {
 
   constructor(
     private httpClientService: HttpClientService,
-    private cdr: ChangeDetectorRef
+    private cdr: ChangeDetectorRef,
+    private snackBarService: SnackBarService
   ) {}
 
   ngOnInit(): void {
@@ -59,18 +62,32 @@ export class CustomJsonComponent implements OnInit {
 
   onSendPayload(): void {
     if (!this.inputData) {
-      alert('No JSON payload provided');
+      this.snackBarService.showError(
+        AlertType.Warning,
+        'No JSON payload provided',
+        'A valid JSON payload is required'
+      );
       return;
     }
 
     try {
       const jsonObject = JSON.parse(this.inputData);
       this.httpClientService.postCustomMessage(jsonObject).subscribe({
-        next: (response) => console.log('Success:', response),
-        error: (error) => console.error('Error:', error),
+        next: (response) =>
+          this.snackBarService.showMessage(
+            AlertType.Success,
+            'Message sent',
+            `Server response: ${response.message}`
+          ),
+        error: (error) =>
+          this.snackBarService.showError(
+            AlertType.Error,
+            'Message was not sent!',
+            `Server response: ${error.message}`
+          ),
       });
     } catch (error) {
-      alert('Invalid JSON: ' + error);
+      this.snackBarService.showError(AlertType.Error, 'Invalid JSON', error);
     }
   }
 }

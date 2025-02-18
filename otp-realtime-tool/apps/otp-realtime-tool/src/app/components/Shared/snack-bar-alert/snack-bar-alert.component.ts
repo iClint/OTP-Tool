@@ -42,7 +42,7 @@ export class SnackBarAlertComponent {
   }
 
   get showDismissButton(): boolean {
-    return !AlertType.Info || !AlertType.Success ? true : false;
+    return [AlertType.Warning, AlertType.Error].includes(this.data.alertType);
   }
 
   dismiss() {
