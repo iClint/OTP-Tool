@@ -5,9 +5,16 @@ import { AppTabsComponent } from './components/app-tabs/app-tabs.component';
 import { HttpClientService } from './services/http-service/http-client.service';
 import { AppErrorComponent } from './components/app-error/app-error.component';
 import { AppConfig } from './models/config-app.model';
+import { AppFooterComponent } from './components/app-footer/app-footer.component';
 
 @Component({
-  imports: [RouterModule, HeaderComponent, AppTabsComponent, AppErrorComponent],
+  imports: [
+    RouterModule,
+    HeaderComponent,
+    AppTabsComponent,
+    AppFooterComponent,
+    AppErrorComponent,
+  ],
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
