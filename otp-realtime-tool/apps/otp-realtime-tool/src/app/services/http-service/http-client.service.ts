@@ -11,6 +11,7 @@ export class HttpClientService {
 
   constructor(private http: HttpClient) {}
 
+  // Get
   public getWebConfig() {
     return this.http.get(`${this.config.apiUrl}/WebConfigs`);
   }
@@ -31,11 +32,30 @@ export class HttpClientService {
   ): Observable<{ success: boolean; message: string }> {
     return this.http
       .get<{ success: boolean; message: string }>(
-        `${this.config.apiUrl}/Message/${proposition}/${fixtureName}`
+        `${this.config.apiUrl}/Messages/${proposition}/${fixtureName}`
       )
       .pipe(
         catchError(this.handleError) // Catch errors globally
       );
+  }
+
+  // Post
+  public postCustomMessage(message: any) {
+    return this.http
+      .post<{ success: boolean; message: string }>(
+        `${this.config.apiUrl}/Messages`,
+        message
+      )
+      .pipe(catchError(this.handleError));
+  }
+
+  public postLocationUpdateMessage(message: any) {
+    return this.http
+      .post<{ success: boolean; message: string }>(
+        `${this.config.apiUrl}/mapUpdate`,
+        message
+      )
+      .pipe(catchError(this.handleError));
   }
 
   // Handle different types of HTTP errors
@@ -52,15 +72,5 @@ export class HttpClientService {
 
     console.error(errorMessage); // Log error to the console for debugging
     return throwError(() => new Error(errorMessage));
-  }
-
-  public postCustomMessage(message: any) {
-    return this.http.post(`${this.config.apiUrl}/Messages`, message);
-  }
-
-  public postMapUpdateMessage(message: any) {
-    return this.http.post(`${this.config.apiUrl}/mapUpdate`, message, {
-      headers: { 'Content-Type': 'application/json' },
-    });
   }
 }

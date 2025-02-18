@@ -30,8 +30,6 @@ mat-form-field {
 
 .button {
   width: 200px;
-  background-color: rgb(45, 68, 216) !important;
-  color: white !important;
   font-weight: 700;
   margin-top: 10px;
 }

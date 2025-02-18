@@ -6,6 +6,8 @@ import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { TrackingEventType } from '../../../models/event-type.model';
 import { HttpClientService } from '../../../services/http-service/http-client.service';
+import { SnackBarService } from '../../../services/snack-bar/snack-bar.service';
+import { AlertType } from '../../../models/alert-type.model';
 
 @Component({
   selector: 'send-map-update',
@@ -25,7 +27,10 @@ export class SendMapUpdateComponent {
   private _lat: number = -33.765278;
   private _lon: number = 151.270278;
 
-  constructor(private httpClientService: HttpClientService) {}
+  constructor(
+    private httpClientService: HttpClientService,
+    private snackBarService: SnackBarService
+  ) {}
 
   get lat(): string {
     return this._lat.toFixed(4);
@@ -60,9 +65,21 @@ export class SendMapUpdateComponent {
     try {
       const messageString = JSON.stringify(message);
       const jsonObject = JSON.parse(messageString);
-      this.httpClientService.postMapUpdateMessage(jsonObject).subscribe({
-        next: (response) => console.log('Success:', response),
-        error: (error) => console.error('Error:', error),
+      this.httpClientService.postLocationUpdateMessage(jsonObject).subscribe({
+        next: (response) => {
+          this.snackBarService.showMessage(
+            AlertType.Success,
+            `Location update sent Lat: ${this._lat} Lon: ${this._lon}`,
+            `Server Response: ${response.message}`
+          );
+        },
+        error: (error) => {
+          this.snackBarService.showError(
+            AlertType.Error,
+            `Location update was not sent!`,
+            `Server response: ${error.message}`
+          );
+        },
       });
     } catch (error) {
       alert('Invalid JSON: ' + error);

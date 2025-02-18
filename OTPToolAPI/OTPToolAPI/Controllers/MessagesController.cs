@@ -58,7 +58,7 @@ public class MessagesController(OrderTrackingService orderTrackingService) : Con
     }
     
     [HttpPost("/mapUpdate")]
-    public async Task<IActionResult> SendMapUpdateMessage([FromBody] JsonElement jsonData)
+    public async Task<IActionResult> SendLocationUpdateMessage([FromBody] JsonElement jsonData)
     {
         try
         {
@@ -90,7 +90,7 @@ public class MessagesController(OrderTrackingService orderTrackingService) : Con
 
             await orderTrackingService.SendLocationUpdatedMessage(messageType, coordinate);
 
-            return Ok(new { success = true, message = "Map update sent successfully" });
+            return Ok(new { success = true, message = "Location update sent successfully" });
         }
         catch (JsonException jsonEx)
         {

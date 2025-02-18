@@ -6,6 +6,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { HttpClientService } from '../../../services/http-service/http-client.service';
 import { PresetMessages } from '../../../models/config-app.model';
 import { SnackBarService } from '../../../services/snack-bar/snack-bar.service';
+import { AlertType } from '../../../models/alert-type.model';
 
 @Component({
   selector: 'preset-messages',
@@ -43,15 +44,18 @@ export class PresetMessagesComponent {
       .subscribe({
         next: (response) => {
           this.snackBarService.showMessage(
-            `Message '${action}' sent - Server Response: ${response.message}`
+            AlertType.Success,
+            `Message '${action}' sent`,
+            `Server Response: ${response.message}`
           );
         },
         error: (error) => {
           this.snackBarService.showError(
-            `The Message was not sent ! Error ${error.message}`
+            AlertType.Error,
+            `Message '${action}' was not sent!`,
+            `Server response: ${error.message}`
           );
         },
       });
-    // todo: handle response and error passing values to a dialog component
   }
 }

@@ -1,0 +1,14 @@
+<div class="alert__container">
+  <mat-icon [class]="iconColor">{{ data.alertType }}</mat-icon>
+  <div class="alert__request">{{ data.request }}</div>
+  <div class="alert__response">{{ data.response }}</div>
+  @if(showDismissButton){
+  <button
+    mat-raised-button
+    color="primary"
+    class="alert__dismiss"
+    (click)="dismiss()"
+  >
+    Close</button
+  >}
+</div>
