@@ -57,7 +57,7 @@ public class MessagesController(OrderTrackingService orderTrackingService) : Con
         }
     }
     
-    [HttpPost("/mapUpdate")]
+    [HttpPost("LocationUpdate")]
     public async Task<IActionResult> SendLocationUpdateMessage([FromBody] JsonElement jsonData)
     {
         try

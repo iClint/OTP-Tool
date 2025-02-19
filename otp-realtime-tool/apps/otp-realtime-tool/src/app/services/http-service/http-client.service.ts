@@ -52,7 +52,7 @@ export class HttpClientService {
   public postLocationUpdateMessage(message: any) {
     return this.http
       .post<{ success: boolean; message: string }>(
-        `${this.config.apiUrl}/mapUpdate`,
+        `${this.config.apiUrl}/Messages/LocationUpdate`,
         message
       )
       .pipe(catchError(this.handleError));
